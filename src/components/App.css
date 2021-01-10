@@ -1,0 +1,30 @@
+.App {
+  /* text-align: center; */
+}
+
+table, tr, td {
+  border: 1px solid black;
+}
+
+thead {
+  font-weight: bold;
+}
+
+td {
+  padding: 1em;
+}
+
+.listeCourses {
+  padding: 1em;
+  -moz-column-count: 4;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 4;
+  -webkit-column-gap: 20px;
+  column-count: 4;
+  column-gap: 20px;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+  color: lightgrey;
+}

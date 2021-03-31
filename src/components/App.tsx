@@ -25,7 +25,6 @@ function App() {
 return (
     <div className="App">
       <section>
-        <button onClick={handleGenerateMenus}>Generate menus</button>
         {menus && (
         <table>
           <thead>
@@ -63,7 +62,12 @@ return (
             </ul>
           </div>
         )}
-          
+        <button onClick={handleGenerateMenus}>Generate menus</button>
+        <select>
+          <option value='fat'>fatty</option>
+          <option value='fat'>équilibré</option>
+          <option value='fat'>healthy</option>
+        </select>
       </section>
     </div>
   );

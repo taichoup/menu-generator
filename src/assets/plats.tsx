@@ -8,7 +8,8 @@ export type plat = {
         autumn: boolean,
         winter: boolean,
         spring: boolean
-    }
+    },
+    healthiness?: 'healthy' | 'neutral' | 'comfort food'
 }
 
 export const plats: plat[] = [
@@ -104,7 +105,8 @@ export const plats: plat[] = [
             'oignon blanc',
             'carottes',
             'lardons',
-            'bouquet garni'
+            'bouquet garni',
+            'ail'
         ],
         course: 'plat'
     },
@@ -139,7 +141,7 @@ export const plats: plat[] = [
             'carottes',
             'pommes de terre',
             'ail',
-            'oignon',
+            'oignons',
             'lait',
             'bouillon cube volaille',
             'huile d\'olive',
@@ -215,7 +217,7 @@ export const plats: plat[] = [
             'bouteille de monbazillac',
             'oranges',
             'citron',
-            'oeuf',
+            'oeufs',
             'griottes surgelées',
             'sucre glace',
             'menthe'
@@ -333,6 +335,71 @@ export const plats: plat[] = [
         ]
     },
     {
+        name: 'pâtes et polpette',
+        difficulty: 'medium',
+        course: 'plat',
+        ingredients: [
+            'pâtes',
+            'boeuf hâché',
+            'pain',
+            'lait',
+            'parmesan',
+            'sel',
+            'poivre',
+            'chapelure',
+            'farine',
+            'huile d\'olive',
+            'pulpe de tomate',
+            'oignons',
+            'ail',
+            'basilic'
+        ]
+    },
+    {
+        name: 'nouilles dandan',
+        difficulty: 'medium',
+        course: 'plat',
+        ingredients: [
+            'nouilles de blé',
+            'porc haché',
+            'huile pimentée',
+            'oignons verts',
+            'sauce soja',
+            'vinaigre de riz',
+            'tahini',
+            'gingembre',
+            'sauce oisin',
+            'cacahuètes',
+            'piments'
+        ]
+    },
+    {
+        name: 'galettes bretonnes',
+        difficulty: 'casual',
+        course: 'plat',
+        ingredients: [
+            'eau',
+            'oeufs',
+            'gros sel'
+        ]
+    },
+    {
+        name: 'chakchouka',
+        difficulty: 'casual',
+        course: 'plat',
+        ingredients: [
+            'poivrons',
+            'tomates',
+            'huile d\'olive',
+            'cumin',
+            'coriandre',
+            'oeufs',
+            'oignons',
+            'ail',
+            'piments'
+        ]
+    },
+    {
         name: 'cordon bleu',
         difficulty: 'casual',
         course: 'plat',
@@ -340,6 +407,59 @@ export const plats: plat[] = [
             'cordon bleu',
             'féculent',
             'légume'
+        ]
+    },
+    {
+        name: 'ramen',
+        difficulty: 'fancy',
+        course: 'plat',
+        ingredients: [
+            'nouilles',
+            'filet mignon',
+            'pâte miso',
+            'algue wakame',
+            'huile de sésame',
+            'sauce soja',
+            'oignons verts',
+            'bouillon de légumes'
+        ]
+    },
+    {
+        name: 'Udon noodle soup',
+        difficulty: 'fancy',
+        course: 'plat',
+        ingredients: [
+            'oeufs',
+            'ail',
+            'gingembre',
+            'oignons verts',
+            'carottes',
+            'pâte miso',
+            'sauce oisin',
+            'eau',
+            'baby bok choy',
+            'nouilles udon fraîches',
+            'citron vert',
+            'huile de sésame',
+            'cacahuètes',
+            'sel',
+            'poivre'
+        ],
+    },
+    {
+        name: 'penne arrabiata aux carottes et tangelos',
+        difficulty: 'medium',
+        course: 'plat',
+        ingredients: [
+            'penne rigate',
+            'tomates pelées',
+            'mozzarella',
+            'carottes',
+            'ail',
+            'tangelos',
+            'olives vertes',
+            'parmesan',
+            'piment'
         ]
     }
 ]

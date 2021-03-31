@@ -1,21 +1,22 @@
 import './App.css';
 import { useState } from 'react';
 import { ListeDeCoursesItem } from './ListeDeCoursesItem';
-import { plats, plat } from '../assets/plats';
+// import { plats, plat } from '../assets/plats';
+import { openRecipes, openRecipe } from '../assets/open_recipes';
 
 
 const MENUS_TO_GENERATE = 14;
 
 function App() {
 
-  const [menus, setMenus] = useState<plat[]>();
+  const [menus, setMenus] = useState<openRecipe[]>();
 
   const handleGenerateMenus = () => {
-    const menus: plat[] = [...plats].sort(() => Math.random() - Math.random()).slice(0, MENUS_TO_GENERATE);
+    const menus: openRecipe[] = [...openRecipes].sort(() => Math.random() - Math.random()).slice(0, MENUS_TO_GENERATE);
     setMenus(menus);
   }
 
-  const generateListeDeCourses = (menus: plat[]) => {
+  const generateListeDeCourses = (menus: openRecipe[]) => {
     const ingredients = menus.flatMap(menu => menu.ingredients);
     const dedupedIngredients = new Set(ingredients);
     return Array.from(dedupedIngredients).sort();

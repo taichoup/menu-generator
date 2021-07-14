@@ -22,6 +22,14 @@ function App() {
     return Array.from(dedupedIngredients).sort();
   }
 
+  type MenuItemProps = {
+    menu: openRecipe
+  }
+
+  const MenuItem = ({ menu }: MenuItemProps) => {
+    return <span title={menu.instructions}>{menu.name}</span>
+  }
+
 
 return (
     <div className="App">
@@ -43,7 +51,7 @@ return (
             <tr>
               {menus
                 .slice(0,7)
-                .map(m => <td>{m.name}</td>)
+                .map(m => <td><MenuItem menu={m} /></td>)
               }
             </tr>
             <tr>
@@ -55,6 +63,7 @@ return (
           </tbody>
         </table>
         )}
+        <button onClick={handleGenerateMenus}>Generate menus</button>
         {menus && (
           <div className="listeCourses">
             <h2>Liste des courses</h2>
@@ -63,12 +72,6 @@ return (
             </ul>
           </div>
         )}
-        <button onClick={handleGenerateMenus}>Generate menus</button>
-        <select>
-          <option value='fat'>fatty</option>
-          <option value='fat'>équilibré</option>
-          <option value='fat'>healthy</option>
-        </select>
       </section>
     </div>
   );

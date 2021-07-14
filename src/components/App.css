@@ -18,6 +18,10 @@ td {
   padding: 1em;
 }
 
+span[title]:hover::after {
+  background-color: darkkhaki;
+}
+
 .listeCourses {
   padding: 1em;
   -moz-column-count: 4;

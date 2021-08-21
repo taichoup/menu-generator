@@ -28,3 +28,22 @@ td {
   text-decoration: line-through;
   color: lightgrey;
 }
+
+.settings {
+  display: flex;
+  padding: 1em;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1em;
+}
+
+.schedule {
+  margin: 1em;
+}

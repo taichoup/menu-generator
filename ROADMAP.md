@@ -1,0 +1,1 @@
+peut être mettre des tags pour les menus: kids, healthy, fatty, veggie, vegan, no pork, etc.

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './App.module.css';
 
 export type ListeDeCoursesItemProps = {
     label: string;
@@ -13,7 +14,7 @@ export const ListeDeCoursesItem = (props: ListeDeCoursesItemProps) => {
         <>
             <input type="checkbox" defaultChecked={checked} onChange={handleOnChecked} id={props.label} />
             <label htmlFor={props.label}>
-                <span className={checked ? "strikethrough" : ""}>
+                <span className={checked ? styles.strikethrough : ""}>
                     {props.label}
                 </span>
             </label>

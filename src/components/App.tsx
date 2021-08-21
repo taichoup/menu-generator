@@ -98,33 +98,35 @@ return (
         <button onClick={handleGenerateMenus}>Générer les menus</button>
       </div>
       {menus && (
-      <table className={styles.schedule}>
-        <thead>
-          <tr>
-            <td>{daysOfTheWeek.MONDAY}</td>
-            <td>{daysOfTheWeek.TUESDAY}</td>
-            <td>{daysOfTheWeek.WEDNESDAY}</td>
-            <td>{daysOfTheWeek.THURSDAY}</td>
-            <td>{daysOfTheWeek.FRIDAY}</td>
-            <td>{daysOfTheWeek.SATURDAY}</td>
-            <td>{daysOfTheWeek.SUNDAY}</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            {menus
-              .slice(0,7)
-              .map(m => <td>{m.name}</td>)
-            }
-          </tr>
-          <tr>
-            {menus
-              .slice(7)
-              .map(m => <td>{m.name}</td>)
-            }
-          </tr>
-        </tbody>
-      </table>
+      <div className={styles.menuTable}>
+        <table>
+          <thead>
+            <tr>
+              <td>{daysOfTheWeek.MONDAY}</td>
+              <td>{daysOfTheWeek.TUESDAY}</td>
+              <td>{daysOfTheWeek.WEDNESDAY}</td>
+              <td>{daysOfTheWeek.THURSDAY}</td>
+              <td>{daysOfTheWeek.FRIDAY}</td>
+              <td>{daysOfTheWeek.SATURDAY}</td>
+              <td>{daysOfTheWeek.SUNDAY}</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {menus
+                .slice(0,7)
+                .map(m => <td>{m.name}</td>)
+              }
+            </tr>
+            <tr>
+              {menus
+                .slice(7)
+                .map(m => <td>{m.name}</td>)
+              }
+            </tr>
+          </tbody>
+        </table>
+      </div>
       )}
       {menus && (
         <div className={styles.listeCourses}>

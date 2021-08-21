@@ -30,7 +30,8 @@ export enum condiments {
     ECHALOTES = 'échalotes',
     GINGEMBRE = 'gingembre',
     CURCUMA = 'curcuma',
-    MENTHE = 'menthe'
+    MENTHE = 'menthe',
+    CIBOULETTE = 'ciboulette',
 };
 
 export enum viande {

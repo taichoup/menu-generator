@@ -44,6 +44,9 @@ td {
   padding: 1em;
 }
 
-.schedule {
-  margin: 1em;
+.menuTable {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding: 1em;
 }

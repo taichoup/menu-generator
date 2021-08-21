@@ -425,7 +425,41 @@ export const plats: plat[] = [
             tags.VEGGIE,
             tags.GLUTEN_FREE
         ]
-
-
+    },
+    {
+        name: 'gratin de courgettes',
+        difficulty: DifficultyValues.MEDIUM,
+        course: 'plat',
+        ingredients: [
+            condiments.SEL,
+            viande.JAMBON_BLANC,
+            condiments.AIL,
+            condiments.MOUTARDE,
+            legumes.COURGETTES,
+            laitages_divers.CREME_FRAICHE,
+            condiments.ECHALOTES,
+            condiments.CIBOULETTE,
+            fromages.GRUYERE
+        ],
+        source: 'https://www.marmiton.org/recettes/recette_gratin-de-courgette_80011.aspx'
+    },
+    {
+        name: 'soupe à la tomate et au basilic',
+        difficulty: DifficultyValues.MEDIUM,
+        course: 'entrée',
+        ingredients: [
+            condiments.HUILE_OLIVE,
+            condiments.POIVRE,
+            condiments.SEL,
+            condiments.BASILIC,
+            legumes.TOMATES,
+            condiments.OIGNONS,
+            laitages_divers.CREME_FRAICHE
+        ],
+        source: 'https://www.marmiton.org/recettes/recette_soupe-a-la-tomate-et-au-basilic_41193.aspx',
+        tags: [
+            tags.VEGGIE,
+            tags.GLUTEN_FREE
+        ]
     }
 ]

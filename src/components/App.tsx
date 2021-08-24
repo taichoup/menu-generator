@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ListeDeCoursesItem } from './ListeDeCoursesItem';
-import { DifficultyValues, plats, plat, tags } from '../assets/plats';
+import { MenuEntry } from './MenuEntry';
+import { DifficultyLevel, plats, plat, tags } from '../assets/plats';
 import styles from './App.module.css';
 
 const MENUS_TO_GENERATE = 14;
@@ -82,15 +83,15 @@ return (
           <h4>Difficulté :</h4>
           <div>
             <input type="radio" id="difficulty_casual" name="difficulty" value="casual" onChange={handleDifficultySettingChange} />
-            <label htmlFor="difficulty_casual">{DifficultyValues.CASUAL}</label>
+            <label htmlFor="difficulty_casual">{DifficultyLevel.CASUAL}</label>
           </div>
           <div>
             <input type="radio" id="difficulty_medium" name="difficulty" value="medium" onChange={handleDifficultySettingChange} />
-            <label htmlFor="difficulty_medium">{DifficultyValues.MEDIUM}</label>
+            <label htmlFor="difficulty_medium">{DifficultyLevel.MEDIUM}</label>
           </div>
           <div>
             <input type="radio" id="difficulty_hard" name="difficulty" value="fancy" onChange={handleDifficultySettingChange} />
-            <label htmlFor="difficulty_hard">{DifficultyValues.FANCY}</label>
+            <label htmlFor="difficulty_hard">{DifficultyLevel.FANCY}</label>
           </div>
         </div>
       </form>
@@ -115,13 +116,13 @@ return (
             <tr>
               {menus
                 .slice(0,7)
-                .map(m => <td>{m.name}</td>)
+                .map(m => <MenuEntry source={m.source || ''} name={m.name} key={m.name}/>)
               }
             </tr>
             <tr>
               {menus
                 .slice(7)
-                .map(m => <td>{m.name}</td>)
+                .map(m => <MenuEntry source={m.source || ''} name={m.name} key={m.name}/>)
               }
             </tr>
           </tbody>
@@ -132,7 +133,7 @@ return (
         <div className={styles.listeCourses}>
           <h2>Liste des courses</h2>
           <ul>
-            {generateListeDeCourses(menus).map(ingredient => <li><ListeDeCoursesItem label={ingredient} /></li>)}
+            {generateListeDeCourses(menus).map(ingredient => <li key={ingredient}><ListeDeCoursesItem label={ingredient} /></li>)}
           </ul>
         </div>
       )}

@@ -32,13 +32,20 @@ export enum condiments {
     CURCUMA = 'curcuma',
     MENTHE = 'menthe',
     CIBOULETTE = 'ciboulette',
+    FINES_HERBES = 'fines herbes',
+    LAURIER = 'laurier',
+    CHILI = 'chili' 
 };
 
 export enum viande {
     BOEUF = 'boeuf',
+    BOEUF_HACHE = 'boeuf haché',
     LARDONS = 'lardons',
     BOEUF_A_MIJOTER = 'viande de boeuf à mijoter',
     DINDE_PAUPIETTES = 'paupiettes de dinde',
+    DINDE_FILETS = 'filets de dinde',
+    DINDE_AIGUILLETTES = 'aiguillettes de dinde',
+    DINDE_ESCALOPES = 'escalopes de dinde',
     SAUCISSES = 'saucisses',
     SAUCISSES_MORTAUX = 'saucisses de Mortaux',
     SAUCISSES_MONTBELIARD = 'saucisses de Montbéliard',
@@ -47,11 +54,23 @@ export enum viande {
     JAMBON_BLANC = 'jambon blanc',
     JAMBON_FUME = 'jambon fumé',
     VEAU = 'veau',
-    CHORIZO = 'chorizo'
+    CHORIZO = 'chorizo',
+    POULET = 'poulet',
+    POULET_BLANC = 'blancs de poulet',
+    POULET_CUISSES = 'cuisses de poulet',
+    POULET_AILES = 'ailes de poulet',
+    POULET_AIGUILLETTES = 'aiguillettes de poulet'
 };
 
 export enum poisson {
-
+    THON = 'thon',
+    CABILLAUD = 'cabillaud',
+    LIEU = 'lieu',
+    LIEU_NOIR = 'lieu noir',
+    LIEU_JAUNE = 'lieu jaune',
+    SOLE = 'sole',
+    LIMANDE = 'limande',
+    ROUGET = 'rouget'
 };
 
 export enum feculents {
@@ -90,6 +109,7 @@ export enum legumes {
     TOMATES_SECHEES = 'tomates séchées',
     TOMATES_CONCENTRE = 'concentré de tomates',
     TOMATES_PULPE = 'pulpe de tomates',
+    TOMATES_CERISE = 'tomates cerise',
     // on considère les patates comme à la fois des légumes et des féculents
     PATATES = 'pommes de terre',
     CAROTTES = 'carottes',
@@ -103,7 +123,17 @@ export enum legumes {
     COURGE = 'courge',
     BUTTERNUT = 'butternut',
     CELERI = 'céleri',
-    POIREAU = 'poireau'
+    POIREAU = 'poireaux',
+    POIVRON = 'poivrons',
+    POIVRON_ROUGE = 'poivrons rouges',
+    POIVRON_JAUNE = 'poivrons jaunes',
+    POIVRON_VERT = 'poivrons verts',
+    RADIS = 'radis',
+    RADIS_NOIR = 'radis noir',
+    RAIFORT = 'raifort',
+    SALSIFI = 'salsifi',
+    TOPINAMBOUR = 'tompinambour',
+    NAVET = 'navet'
 };
 
 export enum misc {
@@ -115,7 +145,9 @@ export enum misc {
     BOUILLON_CUBE_BOEUF = 'bouillon cube de boeuf',
     BOUILLON_LEGUMES = 'bouillon de légumes',
     LEVURE_BOULANGER = 'levure de boulanger',
-    LEVURE_CHIMIQUE = 'levure chimique'
+    LEVURE_CHIMIQUE = 'levure chimique',
+    CORNICHONS = 'cornichons',
+    GELATINE = 'feuilles de gélatine'
 }
 
 export enum laitages_divers {
@@ -143,7 +175,12 @@ export enum alcool {
 
 export enum pates {
     TAGLIATELLE = 'tagliatelle',
-    SPAGHETTI = 'spaghetti'
+    SPAGHETTI = 'spaghetti',
+    LINGUINE = 'linguine',
+    RADIATORI = 'radiatori',
+    FARFALLE = 'farfalle',
+    FUSILLI = 'fusilli',
+    PENNE = 'penne rigate'
 }
 
 export enum fruits {
@@ -155,5 +192,15 @@ export enum fruits {
     ORANGES = 'oranges',
     CERISES = 'cerises',
     FRAMBOISES = 'framboises',
-    CITRONS = 'citrons'
+    CITRONS = 'citrons',
+    FRUITS_ROUGES_DIVERS = 'fruits rouges',
+    GROSEILLES = 'groseilles'
+}
+
+export enum cereales {
+    MAIS = 'maïs',
+    BLE = 'blé',
+    ORGE = 'orge',
+    SEIGLE = 'seigle',
+    SARRASIN = 'sarrasin'
 }

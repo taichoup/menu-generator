@@ -10,16 +10,18 @@ import {
     misc,
     laitages_divers,
     condiments,
-    surgeles
+    surgeles,
+    cereales,
+    poisson
 } from './ingredients';
 
-export enum DifficultyValues {
+export enum DifficultyLevel {
     CASUAL = 'casual',
     MEDIUM = 'medium',
     FANCY = 'fancy'
 };
 
-type Difficulty = DifficultyValues | undefined;
+type Difficulty = DifficultyLevel | undefined;
 
 export type plat = {
     name: string,
@@ -39,7 +41,11 @@ export type plat = {
 export enum tags {
     VEGGIE = 'végétarien',
     VEGAN = 'vegan',
-    GLUTEN_FREE = 'pas de gluten'
+    GLUTEN_FREE = 'pas de gluten',
+    KIDS = 'kids',
+    HEALTHY = 'healthy',
+    FATTY = 'fatty',
+    NO_PORK = 'pas de porc'
 };
 
 export const plats: plat[] = [
@@ -49,7 +55,7 @@ export const plats: plat[] = [
             legumes.LEGUMES_COUSCOUS,
             feculents.SEMOULE
         ],
-        difficulty: DifficultyValues.CASUAL,
+        difficulty: DifficultyLevel.CASUAL,
         course: 'plat'
     },
     {
@@ -64,12 +70,12 @@ export const plats: plat[] = [
             fromages.PARMESAN,
             condiments.POIVRE
         ],
-        difficulty: DifficultyValues.MEDIUM,
+        difficulty: DifficultyLevel.MEDIUM,
         course: 'plat'
     },
     {
         name: 'boeuf stroganoff',
-        difficulty: DifficultyValues.FANCY,
+        difficulty: DifficultyLevel.FANCY,
         ingredients: [
             viande.BOEUF_A_MIJOTER,
             laitages_divers.BEURRE,
@@ -88,7 +94,7 @@ export const plats: plat[] = [
     },
     {
         name: 'moussaka',
-        difficulty: DifficultyValues.MEDIUM,
+        difficulty: DifficultyLevel.MEDIUM,
         ingredients: [
             legumes.AUBERGINES,
             condiments.HUILE_OLIVE,
@@ -112,7 +118,7 @@ export const plats: plat[] = [
     },
     {
         name: 'paupiettes de dinde',
-        difficulty: DifficultyValues.MEDIUM,
+        difficulty: DifficultyLevel.MEDIUM,
         ingredients: [
             viande.DINDE_PAUPIETTES,
             legumes.TOMATES,
@@ -128,7 +134,7 @@ export const plats: plat[] = [
     },
     {
         name: 'saucisse lentilles',
-        difficulty: DifficultyValues.CASUAL,
+        difficulty: DifficultyLevel.CASUAL,
         ingredients: [
             feculents.LENTILLES_VERTES,
             viande.SAUCISSES,
@@ -141,7 +147,7 @@ export const plats: plat[] = [
     },
     {
         name: 'bortsch',
-        difficulty: DifficultyValues.MEDIUM,
+        difficulty: DifficultyLevel.MEDIUM,
         ingredients: [
             legumes.CHOU,
             legumes.CHOU_ROUGE,
@@ -158,7 +164,7 @@ export const plats: plat[] = [
     },
     {
         name: 'velouté de potiron et carottes',
-        difficulty: DifficultyValues.MEDIUM,
+        difficulty: DifficultyLevel.MEDIUM,
         season: {
             summer: false,
             autumn: true,
@@ -187,7 +193,7 @@ export const plats: plat[] = [
     },
     {
         name: 'rougail de richton',
-        difficulty: DifficultyValues.MEDIUM,
+        difficulty: DifficultyLevel.MEDIUM,
         ingredients: [
             viande.SAUCISSES_MONTBELIARD,
             viande.SAUCISSES_MORTAUX,
@@ -206,11 +212,14 @@ export const plats: plat[] = [
             'pâte de cacahuète',
             'jus de citron vert'
         ],
-        course: 'plat'
+        course: 'plat',
+        tags: [
+            tags.FATTY
+        ]
     },
     {
         name: 'cookies de richton',
-        difficulty: DifficultyValues.CASUAL,
+        difficulty: DifficultyLevel.CASUAL,
         course: 'dessert',
         ingredients: [
             laitages_divers.BEURRE_DEMI_SEL,
@@ -227,11 +236,14 @@ export const plats: plat[] = [
             winter: true,
             autumn: true,
             spring: true
-        }
+        },
+        tags: [
+            tags.FATTY
+        ]
     },
     {
         name: 'patrick\'s cornbread',
-        difficulty: DifficultyValues.CASUAL,
+        difficulty: DifficultyLevel.CASUAL,
         course: 'dessert',
         ingredients: [
             feculents.FARINE_BLE,
@@ -244,7 +256,7 @@ export const plats: plat[] = [
     },
     {
         name: 'granité de monbazillac aux griottes',
-        difficulty: DifficultyValues.MEDIUM,
+        difficulty: DifficultyLevel.MEDIUM,
         course: 'dessert',
         ingredients: [
             alcool.VIN_BLANC_MONBAZILLAC,
@@ -258,7 +270,7 @@ export const plats: plat[] = [
     },
     {
         name: 'pizza',
-        difficulty: DifficultyValues.MEDIUM,
+        difficulty: DifficultyLevel.MEDIUM,
         course: 'plat',
         ingredients: [
             viande.CHORIZO,
@@ -269,11 +281,15 @@ export const plats: plat[] = [
             condiments.HUILE_OLIVE,
             condiments.SEL,
             misc.LEVURE_BOULANGER
+        ],
+        tags: [
+            tags.FATTY,
+            tags.KIDS
         ]
     },
     {
         name: 'tagliatelle bolo vitello e funghi',
-        difficulty: DifficultyValues.MEDIUM,
+        difficulty: DifficultyLevel.MEDIUM,
         course: 'plat',
         ingredients: [
             pates.TAGLIATELLE,
@@ -291,17 +307,20 @@ export const plats: plat[] = [
     },
     {
         name: 'saucisses purée compote',
-        difficulty: DifficultyValues.CASUAL,
+        difficulty: DifficultyLevel.CASUAL,
         course: 'plat',
         ingredients: [
             viande.SAUCISSES,
             'purée',
             'compote'
+        ],
+        tags: [
+            tags.KIDS
         ]
     },
     {
         name: 'steak riz épinards',
-        difficulty: DifficultyValues.CASUAL,
+        difficulty: DifficultyLevel.CASUAL,
         course: 'plat',
         ingredients: [
             'steaks',
@@ -311,7 +330,7 @@ export const plats: plat[] = [
     },
     {
         name: 'lasagnes surgelées',
-        difficulty: DifficultyValues.CASUAL,
+        difficulty: DifficultyLevel.CASUAL,
         course: 'plat',
         ingredients: [
             surgeles.LASAGNES
@@ -319,7 +338,7 @@ export const plats: plat[] = [
     },
     {
         name: 'moussaka surgelée',
-        difficulty: DifficultyValues.CASUAL,
+        difficulty: DifficultyLevel.CASUAL,
         course: 'plat',
         ingredients: [
             surgeles.MOUSSAKA
@@ -327,7 +346,7 @@ export const plats: plat[] = [
     },
     {
         name: 'poisson bordelaise surgelé',
-        difficulty: DifficultyValues.CASUAL,
+        difficulty: DifficultyLevel.CASUAL,
         course: 'plat',
         ingredients: [
             surgeles.POISSON_BORDELAISE,
@@ -338,7 +357,7 @@ export const plats: plat[] = [
     },
     {
         name: 'risotto à la courge',
-        difficulty: DifficultyValues.MEDIUM,
+        difficulty: DifficultyLevel.MEDIUM,
         course: 'plat',
         ingredients: [
             feculents.RIZ_RISOTTO,
@@ -352,7 +371,7 @@ export const plats: plat[] = [
     },
     {
         name: 'brandade surgelée',
-        difficulty: DifficultyValues.CASUAL,
+        difficulty: DifficultyLevel.CASUAL,
         course: 'plat',
         ingredients: [
             surgeles.POISSON_BRANDADE,
@@ -362,7 +381,7 @@ export const plats: plat[] = [
     },
     {
         name: 'spaghetti carbonara',
-        difficulty: DifficultyValues.MEDIUM,
+        difficulty: DifficultyLevel.MEDIUM,
         course: 'plat',
         ingredients: [
             pates.SPAGHETTI,
@@ -373,7 +392,7 @@ export const plats: plat[] = [
     },
     {
         name: 'cordon bleu',
-        difficulty: DifficultyValues.CASUAL,
+        difficulty: DifficultyLevel.CASUAL,
         course: 'plat',
         ingredients: [
             'cordon bleu',
@@ -383,7 +402,7 @@ export const plats: plat[] = [
     },
     {
         name: 'courgettes farcies au quinoa et duxelle de champignons',
-        difficulty: DifficultyValues.FANCY,
+        difficulty: DifficultyLevel.FANCY,
         course: 'plat',
         ingredients: [
             feculents.QUINOA,
@@ -408,7 +427,7 @@ export const plats: plat[] = [
     },
     {
         name: 'soupe aux lentilles corail',
-        difficulty: DifficultyValues.CASUAL,
+        difficulty: DifficultyLevel.CASUAL,
         course: 'entrée',
         ingredients: [
             condiments.CUMIN,
@@ -428,7 +447,7 @@ export const plats: plat[] = [
     },
     {
         name: 'gratin de courgettes',
-        difficulty: DifficultyValues.MEDIUM,
+        difficulty: DifficultyLevel.MEDIUM,
         course: 'plat',
         ingredients: [
             condiments.SEL,
@@ -441,11 +460,14 @@ export const plats: plat[] = [
             condiments.CIBOULETTE,
             fromages.GRUYERE
         ],
-        source: 'https://www.marmiton.org/recettes/recette_gratin-de-courgette_80011.aspx'
+        source: 'https://www.marmiton.org/recettes/recette_gratin-de-courgette_80011.aspx',
+        tags: [
+            tags.GLUTEN_FREE
+        ]
     },
     {
         name: 'soupe à la tomate et au basilic',
-        difficulty: DifficultyValues.MEDIUM,
+        difficulty: DifficultyLevel.MEDIUM,
         course: 'entrée',
         ingredients: [
             condiments.HUILE_OLIVE,
@@ -459,7 +481,164 @@ export const plats: plat[] = [
         source: 'https://www.marmiton.org/recettes/recette_soupe-a-la-tomate-et-au-basilic_41193.aspx',
         tags: [
             tags.VEGGIE,
+            tags.GLUTEN_FREE,
+            tags.HEALTHY
+        ]
+    },
+    {
+        name: 'salade piémontaise',
+        difficulty: DifficultyLevel.CASUAL,
+        course: 'entrée',
+        ingredients: [
+            condiments.SEL,
+            condiments.POIVRE,
+            condiments.PERSIL,
+            legumes.TOMATES,
+            legumes.PATATES,
+            misc.OEUFS,
+            cereales.MAIS,
+            viande.POULET_BLANC,
+            misc.CORNICHONS
+        ],
+        source: 'https://www.marmiton.org/recettes/recette_salade-piemontaise-de-nath_33648.aspx',
+        tags: [
             tags.GLUTEN_FREE
+        ],
+        season: {
+            summer: true,
+            autumn: false,
+            winter: false,
+            spring: true
+        }
+    },
+    {
+        name: 'parfait aux fruits rouges',
+        difficulty: DifficultyLevel.MEDIUM,
+        course: 'dessert',
+        ingredients: [
+            fruits.CITRONS,
+            condiments.SUCRE_GLACE,
+            condiments.SUCRE,
+            fruits.FRUITS_ROUGES_DIVERS,
+            'fécule',
+            misc.OEUFS,
+            laitages_divers.CREME_LIQUIDE
+        ],
+        source: 'https://www.marmiton.org/recettes/recette_parfait-aux-fruits-rouges_176113.aspx',
+        tags: [
+            tags.VEGGIE
+        ],
+        season: {
+            summer: true,
+            autumn: false,
+            winter: false,
+            spring: false
+        }
+    },
+    {
+        name: 'tomates farcies / riz',
+        difficulty: DifficultyLevel.CASUAL,
+        course: 'plat',
+        ingredients: [
+            feculents.RIZ,
+            condiments.HUILE_OLIVE,
+            legumes.TOMATES,
+            misc.OEUFS,
+            condiments.OIGNONS,
+            condiments.FINES_HERBES,
+            viande.BOEUF_HACHE,
+            fromages.GRUYERE
+        ],
+        source: 'https://www.marmiton.org/recettes/recette_tomates-farcies-a-la-viande-hachee-faciles-et-rapides_92386.aspx',
+        season: {
+            summer: true,
+            autumn: false,
+            winter: false,
+            spring: false
+        }
+    },
+    {
+        name: 'mousse à la groseille',
+        difficulty: DifficultyLevel.MEDIUM,
+        course: 'dessert',
+        ingredients: [
+            misc.GELATINE,
+            condiments.SUCRE,
+            fruits.GROSEILLES,
+            laitages_divers.CREME_FRAICHE
+        ],
+        source: 'https://www.marmiton.org/recettes/recette_mousse-a-la-groseille_170265.aspx',
+        season: {
+            summer: true,
+            autumn: false,
+            winter: false,
+            spring: false
+        }
+    },
+    {
+        name: 'poivrons farcis au thon et au quinoa',
+        difficulty: DifficultyLevel.MEDIUM,
+        course: 'plat',
+        ingredients: [
+            condiments.SEL,
+            condiments.POIVRE,
+            condiments.HUILE_OLIVE,
+            misc.BOUILLON_CUBE,
+            legumes.TOMATES,
+            feculents.QUINOA,
+            poisson.THON,
+            legumes.POIVRON,
+            condiments.OIGNONS,
+            laitages_divers.CREME_FRAICHE
+        ],
+        source: 'https://www.marmiton.org/recettes/recette_poivrons-farcis-au-thon-et-au-quinoa_63771.aspx',
+        tags: [
+            tags.GLUTEN_FREE,
+            tags.NO_PORK
+        ]
+    },
+    {
+        name: 'salade de riz végé',
+        difficulty: DifficultyLevel.CASUAL,
+        course: 'plat',
+        ingredients: [
+            condiments.POIVRE,
+            condiments.SEL,
+            condiments.HUILE_OLIVE,
+            condiments.BASILIC,
+            fruits.CITRONS,
+            legumes.COURGETTES,
+            legumes.TOMATES_CERISE,
+            feculents.RIZ,
+            legumes.BETTERAVES_CUITES,
+            legumes.RADIS
+        ],
+        source: 'https://www.marmiton.org/recettes/recette_salade-de-riz-vegetarienne_531273.aspx',
+        tags: [
+            tags.VEGGIE
+        ]
+    },
+    {
+        name: 'linguine al limone',
+        difficulty: DifficultyLevel.MEDIUM,
+        course: 'plat',
+        ingredients: [
+            fromages.PARMESAN,
+            condiments.HUILE_OLIVE,
+            pates.LINGUINE,
+            condiments.MENTHE,
+            fruits.CITRONS,
+            condiments.THYM,
+            condiments.LAURIER,
+            condiments.AIL,
+            condiments.SEL,
+            condiments.PAPRIKA,
+            condiments.CHILI
+        ],
+        source: 'https://www.youtube.com/watch?v=uCOERacO4YY',
+        tags: [
+            tags.VEGGIE
         ]
     }
+
 ]

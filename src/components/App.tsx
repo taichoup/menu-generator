@@ -3,8 +3,7 @@ import { ListeDeCoursesItem } from './ListeDeCoursesItem';
 import { MenuEntry } from './MenuEntry';
 import { DifficultyLevel, plats, plat, tags } from '../assets/plats';
 import styles from './App.module.css';
-
-const MENUS_TO_GENERATE = 14;
+import { resourceLimits } from 'worker_threads';
 
 enum daysOfTheWeek {
   MONDAY = 'lundi',
@@ -19,6 +18,7 @@ enum daysOfTheWeek {
 function App() {
 
   const [menus, setMenus] = useState<plat[]>();
+  const [menuQty, setMenuQty] = useState(14);
   const [settingVeggie, setSettingVeggie] = useState(false);
   const [settingVegan, setSettingVegan] = useState(false);
   const [settingGlutenFree, setSettingGlutenFree] = useState(false);
@@ -28,7 +28,7 @@ function App() {
     const menus: plat[] = 
       [...plats]
         .sort(() => Math.random() - Math.random())
-        .slice(0, MENUS_TO_GENERATE)
+        .slice(0, menuQty)
         // y a un souci là. Parfois ça ne génère pas assez de menus. Ce qu'il faudrait quand ça filtre trop, c'est que ça répète les menus pour en avoir le bon nombre
         .filter(plat => difficulty ? plat.difficulty === difficulty : plat)
         .filter(plat => settingVeggie ? plat?.tags?.includes(tags.VEGGIE) : plat)
@@ -59,11 +59,15 @@ function App() {
     setDifficulty((event.currentTarget as HTMLInputElement).value);
   };
 
+  const handleMenuQtyChange = (event: React.FormEvent) => {
+    setMenuQty(Number((event.currentTarget as HTMLInputElement).value));
+  };
+
 
 return (
   <div className={styles.App}>
     <section>
-      <form className={styles.settings}>
+      <form className={styles.settings} id="settings_form" >
         <div className={styles.settingsGroup}>
           <h4>Restrictions :</h4>
           <div>
@@ -92,6 +96,19 @@ return (
           <div>
             <input type="radio" id="difficulty_hard" name="difficulty" value="fancy" onChange={handleDifficultySettingChange} />
             <label htmlFor="difficulty_hard">{DifficultyLevel.FANCY}</label>
+          </div>
+        </div>
+        <div>
+          <h4>Nombre de menus à générer :</h4>
+          <div>
+            <input
+             type="range"
+             id="settings_qty"
+             onChange={handleMenuQtyChange}
+             min="1"
+             max="14"
+             name="qty"/>
+             <span className={styles.menuQtyLabel}>{menuQty}</span>
           </div>
         </div>
       </form>

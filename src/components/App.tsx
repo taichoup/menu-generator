@@ -63,6 +63,12 @@ function App() {
     setMenuQty(Number((event.currentTarget as HTMLInputElement).value));
   };
 
+  // array with the qty of days corresponding to the qty of menus
+  // (2 menus per day)
+  // this is 1-indexed to facilitate string interpolation below
+  const daysInTable = Array.from(Array(Math.ceil(menuQty / 2)).keys()).map(elt => elt + 1);
+  const lunchesQty = Math.ceil(menuQty / 2);
+  const dinnersQty = Math.floor(menuQty / 2);
 
 return (
   <div className={styles.App}>
@@ -120,26 +126,22 @@ return (
         <table>
           <thead>
             <tr>
-              <td>{daysOfTheWeek.MONDAY}</td>
-              <td>{daysOfTheWeek.TUESDAY}</td>
-              <td>{daysOfTheWeek.WEDNESDAY}</td>
-              <td>{daysOfTheWeek.THURSDAY}</td>
-              <td>{daysOfTheWeek.FRIDAY}</td>
-              <td>{daysOfTheWeek.SATURDAY}</td>
-              <td>{daysOfTheWeek.SUNDAY}</td>
+              {daysInTable.map(day => <td>{`Jour ${day}`}</td>)}
             </tr>
           </thead>
           <tbody>
             <tr>
               {menus
-                .slice(0,7)
-                .map(m => <MenuEntry source={m.source || ''} name={m.name} key={m.name}/>)
+                .filter((menu, idx) => idx % 2 === 0)
+                .map(menu => <MenuEntry source={menu.source || ''} name={menu.name} key={menu.name} />)
+                .slice(0, lunchesQty)
               }
             </tr>
             <tr>
               {menus
-                .slice(7)
-                .map(m => <MenuEntry source={m.source || ''} name={m.name} key={m.name}/>)
+                .filter((menu, idx) => idx % 2 === 1)
+                .map(menu => <MenuEntry source={menu.source || ''} name={menu.name} key={menu.name} />)
+                .slice(0, dinnersQty)
               }
             </tr>
           </tbody>
@@ -150,7 +152,9 @@ return (
         <div className={styles.listeCourses}>
           <h2>Liste des courses</h2>
           <ul>
-            {generateListeDeCourses(menus).map(ingredient => <li key={ingredient}><ListeDeCoursesItem label={ingredient} /></li>)}
+            {generateListeDeCourses(menus.slice(0, menuQty))
+              .map(ingredient => <li key={ingredient}><ListeDeCoursesItem label={ingredient} /></li>)
+            }
           </ul>
         </div>
       )}

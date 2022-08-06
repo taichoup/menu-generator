@@ -3,17 +3,6 @@ import { ListeDeCoursesItem } from './ListeDeCoursesItem';
 import { MenuEntry } from './MenuEntry';
 import { DifficultyLevel, plats, plat, tags } from '../assets/plats';
 import styles from './App.module.css';
-import { resourceLimits } from 'worker_threads';
-
-enum daysOfTheWeek {
-  MONDAY = 'lundi',
-  TUESDAY = 'mardi',
-  WEDNESDAY = 'mercredi',
-  THURSDAY = 'jeudi',
-  FRIDAY = 'vendredi',
-  SATURDAY = 'samedi',
-  SUNDAY = 'dimanche'
-};
 
 function App() {
 

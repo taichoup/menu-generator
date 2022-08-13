@@ -8,6 +8,7 @@ import {
     fruits,
     legumes,
     misc,
+    noix,
     laitages_divers,
     condiments,
     surgeles,
@@ -729,7 +730,7 @@ export const plats: plat[] = [
         ]
     },
     {
-        name: 'Babu-style Carbonnade',
+        name: 'babu-style Carbonnade',
         difficulty: DifficultyLevel.MEDIUM,
         course: 'plat',
         ingredients: [
@@ -755,7 +756,7 @@ export const plats: plat[] = [
         ]
     },
     {
-        name: 'Chili con carne maison',
+        name: 'chili con carne maison',
         difficulty: DifficultyLevel.MEDIUM,
         course: 'plat',
         ingredients: [
@@ -785,11 +786,12 @@ export const plats: plat[] = [
         source: 'https://youtu.be/CbLbzXst104',
         tags: [
             tags.SAVORY,
-            tags.NO_PORK
+            tags.NO_PORK,
+            tags.HOT,
         ]
     },
     {
-        name: 'Risotto milanese aux champignons',
+        name: 'risotto milanese aux champignons',
         difficulty: DifficultyLevel.MEDIUM,
         course: 'plat',
         ingredients: [
@@ -808,10 +810,11 @@ export const plats: plat[] = [
             tags.NO_PORK,
             tags.SAVORY,
             tags.VEGGIE,
+            tags.HOT,
         ]
     },
     {
-        name: 'Risotto alla pilota',
+        name: 'risotto alla pilota',
         difficulty: DifficultyLevel.MEDIUM,
         course: 'plat',
         ingredients: [
@@ -823,11 +826,12 @@ export const plats: plat[] = [
         ],
         source: 'https://ricette.giallozafferano.it/Riso-alla-pilota.html',
         tags: [
+            tags.HOT,
             tags.SAVORY,
         ]
     },
     {
-        name: 'Boeuf bourguignon',
+        name: 'boeuf bourguignon',
         difficulty: DifficultyLevel.MEDIUM,
         course: 'plat',
         ingredients: [
@@ -847,11 +851,12 @@ export const plats: plat[] = [
         ],
         source: 'https://cuisine.journaldesfemmes.fr/recette/346736-boeuf-bourguignon',
         tags: [
+            tags.HOT,
             tags.SAVORY,
         ]
     },
     {
-        name: 'Tiramisù Speculoos Framboises',
+        name: 'tiramisù Speculoos Framboises',
         difficulty: DifficultyLevel.MEDIUM,
         course: 'dessert',
         ingredients: [
@@ -864,12 +869,13 @@ export const plats: plat[] = [
         ],
         source: 'chefsquare',
         tags: [
+            tags.COLD,
             tags.SWEET,
             tags.VEGGIE,
         ]
     },
     {
-        name: 'Parmentier de Canard',
+        name: 'parmentier de confit de canard',
         difficulty: DifficultyLevel.MEDIUM,
         course: 'plat',
         ingredients: [
@@ -886,8 +892,229 @@ export const plats: plat[] = [
         ],
         source: 'https://www.marmiton.org/recettes/recette_parmentier-de-confit-de-canard_17048.aspx',
         tags: [
+            tags.HOT,
             tags.FATTY,
             tags.SAVORY,
         ],
+    },
+    {
+        name: 'escalopes de dinde panées',
+        difficulty: DifficultyLevel.CASUAL,
+        course: 'plat',
+        ingredients: [
+            condiments.SEL,
+            condiments.POIVRE,
+            fruits.CITRONS,
+            feculents.FARINE_BLE,
+            misc.CHAPELURE,
+            misc.OEUFS,
+            viande.DINDE_ESCALOPES,
+            feculents.AU_CHOIX,
+            legumes.AU_CHOIX,
+        ],
+        tags: [
+            tags.HOT,
+            tags.SAVORY,
+            tags.FATTY,
+        ], 
+    },
+    {
+        name: 'blanquette de veau au safran',
+        difficulty: DifficultyLevel.MEDIUM,
+        course: 'plat',
+        ingredients: [
+            viande.VEAU_TENDRON, // ou épaule
+            legumes.CELERI,
+            laitages_divers.CREME_FRAICHE,
+            condiments.BOUQUET_GARNI,
+            condiments.SAFRAN,
+            condiments.POIVRE,
+            legumes.CAROTTES,
+            misc.OEUFS,
+            condiments.OIGNONS,
+            condiments.GIROFLE_CLOUS,
+            condiments.CIBOULETTE,
+            condiments.SEL,
+            feculents.RIZ,
+        ],
+        source: 'https://www.cuisineaz.com/recettes/blanquette-de-veau-au-safran-114324.aspx',
+        tags: [
+            tags.HOT,
+            tags.SAVORY,
+        ]
+    },
+    {
+        name: 'moussaka chèvre basilic',
+        difficulty: DifficultyLevel.MEDIUM,
+        course: 'plat',
+        ingredients: [
+            legumes.AUBERGINES,
+            laitages_divers.FROMAGE_BLANC,
+            condiments.HUILE_OLIVE,
+            condiments.AIL,
+            condiments.SEL,
+            condiments.BASILIC,
+            condiments.POIVRE,
+            fromages.CHEVRE_FRAIS,
+            fromages.RAPE_AU_CHOIX,
+        ],
+        source: 'https://www.cuisineaz.com/recettes/moussaka-chevre-basilic-114340.aspx',
+        tags: [
+            tags.HOT,
+            tags.SAVORY,
+            tags.VEGGIE,
+        ]
+    },
+    {
+        name: 'gratin dauphinois',
+        difficulty: DifficultyLevel.MEDIUM,
+        course: 'plat',
+        ingredients: [
+            legumes.PATATES,
+            fromages.COMTE,
+            laitages_divers.CREME_LIQUIDE,
+            laitages_divers.LAIT,
+            laitages_divers.BEURRE,
+            condiments.AIL,
+            condiments.SEL,
+            condiments.POIVRE,
+        ],
+        source: 'https://www.cuisineactuelle.fr/recettes/gratin-dauphinois-279561',
+        tags: [
+            tags.HOT,
+            tags.SAVORY,
+            tags.VEGGIE,
+            tags.FATTY,
+        ],
+    },
+    {
+        name: 'fondant au chocolat',
+        difficulty: DifficultyLevel.MEDIUM,
+        course: 'dessert',
+        ingredients: [
+            misc.CHOCOLAT_PATISSIER,
+            misc.OEUFS,
+            condiments.SUCRE,
+            feculents.FARINE_MAIS,
+            laitages_divers.BEURRE,
+        ],
+        source: 'https://www.cuisineactuelle.fr/recettes/lasagnes-au-boeuf-274160',
+        tags: [
+            tags.HOT,
+            tags.SWEET,
+            tags.VEGGIE,
+        ]
+    },
+    {
+        name: 'poulet rôti cocotte',
+        difficulty: DifficultyLevel.MEDIUM,
+        course: 'plat',
+        ingredients: [
+            viande.POULET,
+            laitages_divers.CREME_FRAICHE, // ou yaourt ou fromage blanc
+            condiments.THYM,
+            condiments.BOUQUET_GARNI,
+            condiments.HUILE_OLIVE,
+            condiments.SEL,
+            condiments.POIVRE,
+            condiments.AIL,
+            condiments.OIGNONS,
+            misc.BOUILLON_CUBE_VOLAILLE,
+            feculents.AU_CHOIX,
+            legumes.AU_CHOIX,
+        ],
+        tags: [
+            tags.HOT,
+            tags.SAVORY,
+        ],
+    },
+    {
+        name: 'pâtes à la crème de fenouil',
+        difficulty: DifficultyLevel.MEDIUM,
+        course: 'plat',
+        ingredients: [
+            legumes.FENOUIL,
+            misc.BOUILLON_LEGUMES,
+            fromages.PARMESAN,
+            condiments.HUILE_OLIVE,
+            condiments.SEL,
+            condiments.POIVRE,
+            pates.FUSILLI,
+        ],
+        tags: [
+            tags.HOT,
+            tags.SAVORY,
+            tags.VEGGIE,
+        ],
+    },
+    {
+        name: 'ceviche tropical de daurade',
+        difficulty: DifficultyLevel.MEDIUM,
+        course: 'entrée',
+        ingredients: [
+            poisson.DAURADE,
+            fruits.FRUITS_PASSION,
+            fruits.ANANAS,
+            legumes.AVOCATS,
+            fruits.CITRONS,
+            condiments.OIGNONS,
+            condiments.ANETH,
+            condiments.CORIANDRE,
+            condiments.HUILE_OLIVE,
+            condiments.SEL,
+            condiments.POIVRE,
+        ],
+        source: 'https://www.cuisineactuelle.fr/recettes/ceviche-tropical-de-daurade-191022',
+        tags: [
+            tags.COLD,
+        ]
+    },
+    {
+        name: 'carrot cake de Julia',
+        difficulty: DifficultyLevel.FANCY,
+        course: 'dessert',
+        ingredients: [
+            misc.OEUFS,
+            condiments.HUILE_VEGETALE_AU_CHOIX,
+            condiments.SUCRE,
+            condiments.VANILLE,
+            feculents.FARINE_BLE,
+            misc.LEVURE_CHIMIQUE,
+            condiments.SEL,
+            condiments.CANNELLE,
+            legumes.CAROTTES,
+            noix.NOIX_PECAN,
+            laitages_divers.BEURRE,
+            laitages_divers.CREAM_CHEESE,
+        ],
+        tags: [
+            tags.SWEET,
+            tags.FATTY,
+            tags.VEGGIE,
+        ]
+    },
+    {
+        name: 'frittelle di riso e mele',
+        difficulty: DifficultyLevel.CASUAL,
+        course : 'dessert',
+        ingredients: [
+            fruits.POMMES,
+            feculents.RIZ_RISOTTO_ARBORIO,
+            feculents.FARINE_BLE,
+            laitages_divers.LAIT,
+            condiments.SUCRE,
+            misc.OEUFS,
+            fruits.CITRONS_ZESTES,
+            condiments.HUILE_ARACHIDE,
+            condiments.SEL,
+            misc.MIEL_CHATAIGNE,
+            condiments.CANNELLE,
+        ],
+        source: 'https://ricette.giallozafferano.it/Frittelle-di-riso-e-mele.html',
+        tags: [
+            tags.SWEET,
+            tags.FATTY,
+            tags.VEGGIE,
+        ]
     }
 ]

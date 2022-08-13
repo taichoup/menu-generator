@@ -1,5 +1,6 @@
 export enum condiments {
     AIL = 'ail',
+    ANETH = 'aneth',
     BASILIC = 'basilic',
     BOUQUET_GARNI = 'bouquet garni',
     CANNELLE = 'cannelle',
@@ -12,9 +13,11 @@ export enum condiments {
     ECHALOTES = 'échalotes',
     FINES_HERBES = 'fines herbes',
     GINGEMBRE = 'gingembre',
+    GIROFLE_CLOUS = 'clous de girofle',
     HUILE_ARACHIDE = 'huile d\'arachide',
     HUILE_OLIVE = 'huile d\'olive',
     HUILE_TOURNESOL = 'huile de tournesol',
+    HUILE_VEGETALE_AU_CHOIX = 'huile végétale au choix',
     LAURIER = 'laurier',
     MENTHE = 'menthe',
     MOUTARDE = 'moutarde',
@@ -35,6 +38,7 @@ export enum condiments {
     PIMENT_JALAPENO = 'piment Jalapeño',
     POIVRE = 'poivre',
     ROMARIN = 'romarin',
+    SAFRAN = 'safran',
     SAUGE = 'sauge',
     SEL = 'sel',
     SUCRE = 'sucre',
@@ -43,6 +47,7 @@ export enum condiments {
     SUCRE_GLACE = 'sucre glace',
     SUCRE_ROUX = 'sucre roux',
     THYM = 'thym',
+    VANILLE = 'vanille',
     VINAIGRE = 'vinaigre',
     VINAIGRE_BALSAMIQUE = 'vinaigre balsamique',
     VINAIGRE_CIDRE = 'vinaigre de cidre',
@@ -80,10 +85,13 @@ export enum viande {
     SAUCISSES_MORTAUX = 'saucisses de Mortaux',
     SAUCISSES_STRASBOURG = 'saucisses de Strasbourg',
     VEAU = 'veau',
+    VEAU_TENDRON = 'tendron de veau',
+    VEAU_EPAULE = 'épaule de veau',
 };
 
 export enum poisson {
     CABILLAUD = 'cabillaud',
+    DAURADE = 'daurade',
     LIEU = 'lieu',
     LIEU_JAUNE = 'lieu jaune',
     LIEU_NOIR = 'lieu noir',
@@ -94,6 +102,7 @@ export enum poisson {
 };
 
 export enum feculents {
+    AU_CHOIX = 'féculent au choix',
     FARINE_BLE = 'farine',
     FARINE_MAIS = 'farine de maïs',
     HARICOTS_ROUGES = 'haricots rouges',
@@ -119,6 +128,8 @@ export enum feculents {
 
 export enum fromages {
     CHEDDAR = 'cheddar',
+    CHEVRE = 'chèvre',
+    CHEVRE_FRAIS = 'chèvre frais',
     COMTE = 'comte',
     GORGONZOLA = 'gorgonzola',
     GRANA = 'grana padano',
@@ -126,10 +137,13 @@ export enum fromages {
     MASCARPONE = 'mascarpone',
     MOZZARELLA = 'mozzarella',
     PARMESAN = 'parmesan',
+    RAPE_AU_CHOIX = 'fromage râpé au choix',
 }
 
 export enum legumes {
+    AU_CHOIX = 'légumes au choix',
     AUBERGINES = 'aubergines',
+    AVOCATS = 'avocats',
     BETTERAVES = 'betteraves',
     BETTERAVES_CUITES = 'betteraves cuites',
     BUTTERNUT = 'butternut',
@@ -140,6 +154,7 @@ export enum legumes {
     COURGE = 'courge',
     COURGETTES = 'courgettes',
     COURGETTES_RONDES = 'courgettes rondes',
+    FENOUIL = 'fenouil',
     LEGUMES_COUSCOUS = 'légumes à couscous',
     MAIS = 'maïs',
     NAVET = 'navet',
@@ -174,11 +189,19 @@ export enum misc {
     CHAMPI_CEPES = 'cèpes',
     CHAMPI_GIROLLES = 'girolles',
     CHAMPI_PARIS = 'champignons de Paris',
+    CHAPELURE = 'chapelure',
+    CHOCOLAT = 'chocolat',
+    CHOCOLAT_LAIT = 'chocolat au lait',
+    CHOCOLAT_BLANC = 'chocolat blanc',
+    CHOCOLAT_NOIR = 'chocolat noir',
+    CHOCOLAT_PATISSIER = 'chocolat pâtissier',
     CORNICHONS = 'cornichons',
     EAU = 'eau',
     GELATINE = 'feuilles de gélatine',
     LEVURE_BOULANGER = 'levure de boulanger',
     LEVURE_CHIMIQUE = 'levure chimique',
+    MIEL = 'miel',
+    MIEL_CHATAIGNE = 'miel de chataîgne',
     OEUFS = 'oeufs',
     PAIN = 'pain',
     PAIN_COMPLET = 'pain complet',
@@ -187,12 +210,22 @@ export enum misc {
     TORTILLAS = 'tortillas',
 }
 
+export enum noix {
+    AMANDES = 'amandes',
+    NOISETTES = 'noisettes',
+    NOIX = 'noix',
+    NOIX_CAJOU = 'noix de cajou',
+    NOIX_PECAN = 'noix de pécan',
+}
+
 export enum laitages_divers {
     BEURRE = 'beurre',
     BEURRE_DEMI_SEL = 'beurre demi-sel',
+    CREAM_CHEESE = 'cream cheese',
     CREME_AIGRE = 'crème aigre',
     CREME_FRAICHE = 'crème fraîche',
     CREME_LIQUIDE = 'crème liquide',
+    FROMAGE_BLANC = 'fromage blanc',
     LAIT = 'lait',
 }
 
@@ -231,10 +264,14 @@ export enum pates {
 }
 
 export enum fruits {
+    ANANAS = 'ananas',
+    AVOCATS = 'avocats',
     BANANES = 'bananes',
     CERISES = 'cerises',
     CITRONS = 'citrons',
+    CITRONS_ZESTES = 'zestes de citron',
     FRAMBOISES = 'framboises',
+    FRUITS_PASSION = 'fruits de la passion',
     FRUITS_ROUGES_DIVERS = 'fruits rouges',
     GRIOTTES = 'griottes',
     GROSEILLES = 'groseilles',

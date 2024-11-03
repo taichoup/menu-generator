@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './App.module.css';
 
-export type ListeDeCoursesItemProps = {
+export type GroceriesListItemProps = {
     label: string;
 }
 
-export const ListeDeCoursesItem = (props: ListeDeCoursesItemProps) => {
+export const GroceriesListItem = (props: GroceriesListItemProps) => {
     const [checked, setChecked] = useState(false);
     const handleOnChecked = () => {
         setChecked(!checked);

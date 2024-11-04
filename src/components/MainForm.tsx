@@ -7,6 +7,7 @@ interface Props {
   handleGenerateMenus: (menuQty: number) => void;
   handleMenuQtyChange: (event: React.FormEvent) => void;
   handleGlutenSettingChange: () => void;
+  handleSeasonalSettingChange: () => void;
   handleVeganSettingChange: () => void;
   handleVeggieSettingChange: () => void;
   menuQty: number;
@@ -17,6 +18,7 @@ export const MainForm = ({
     handleGenerateMenus,
     handleGlutenSettingChange,
     handleMenuQtyChange,
+    handleSeasonalSettingChange,
     handleVeganSettingChange,
     handleVeggieSettingChange,
     menuQty,
@@ -26,6 +28,8 @@ export const MainForm = ({
       <form className={styles.settings} id="settings_form">
         <div className={styles.settingsGroup}>
           <h4>Restrictions :</h4>
+
+          {/* VEGGIE? */}
           <div>
             <input
               type="checkbox"
@@ -34,6 +38,8 @@ export const MainForm = ({
             />
             <label htmlFor="settings_veggie">{tags.VEGGIE}</label>
           </div>
+
+          {/* VEGAN? */}
           <div>
             <input
               type="checkbox"
@@ -42,6 +48,8 @@ export const MainForm = ({
             />
             <label htmlFor="settings_vegan">{tags.VEGAN}</label>
           </div>
+
+          {/* GLUTEN-FREE? */}
           <div>
             <input
               type="checkbox"
@@ -49,6 +57,16 @@ export const MainForm = ({
               onChange={handleGlutenSettingChange}
             />
             <label htmlFor="settings_nogluten">{tags.GLUTEN_FREE}</label>
+          </div>
+
+          {/* SEASONAL? */}
+          <div>
+            <input
+              type="checkbox"
+              id="settings_seasonal"
+              onChange={handleSeasonalSettingChange}
+            />
+            <label htmlFor="settings°seasonal">de saison</label>
           </div>
         </div>
         <div className={styles.settingsGroup}>

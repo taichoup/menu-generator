@@ -296,3 +296,68 @@ export enum Cereales {
     SARRASIN = 'sarrasin',
     SEIGLE = 'seigle',
 }
+
+export type Ingredients = 
+  | Condiments 
+  | Viande
+  | Poisson
+  | Feculents
+  | Fromages
+  | Legumes
+  | Divers
+  | Oleagineux
+  | LaitagesDivers
+  | Surgeles
+  | Alcools
+  | Fruits
+  | Cereales
+
+
+
+export interface Groceries {
+    condiments: Condiments[],
+    viande: Viande[],
+    poisson: Poisson[],
+    féculents: (Feculents | Pates)[],
+    fromages: Fromages[],
+    légumes: Legumes[],
+    misc: Divers[],
+    oléagineux: Oleagineux[],
+    laitages: LaitagesDivers[],
+    surgelés: Surgeles[],
+    alcools: Alcools[],
+    fruits: Fruits[],
+    graines: Cereales[],
+}
+
+// beurk...
+export const getEnumName = (value: string): keyof Groceries | null => {
+    if (Object.values(Condiments).includes(value as Condiments)) {
+    return "condiments";
+    } else if (Object.values(Viande).includes(value as Viande)) {
+    return "viande";
+    } else if (Object.values(Poisson).includes(value as Poisson)) {
+    return "poisson";
+    } else if (Object.values(Feculents).includes(value as Feculents) || Object.values(Pates).includes(value as Pates)) {
+    return "féculents";
+    } else if (Object.values(Fromages).includes(value as Fromages)) {
+    return "fromages";
+    } else if (Object.values(Legumes).includes(value as Legumes)) {
+    return "légumes";
+    } else if (Object.values(Divers).includes(value as Divers)) {
+    return "misc";
+    } else if (Object.values(Oleagineux).includes(value as Oleagineux)) {
+    return "oléagineux";
+    } else if (Object.values(LaitagesDivers).includes(value as LaitagesDivers)) {
+    return "laitages";
+    } else if (Object.values(Surgeles).includes(value as Surgeles)) {
+    return "surgelés";
+    } else if (Object.values(Alcools).includes(value as Alcools)) {
+    return "alcools";
+    } else if (Object.values(Fruits).includes(value as Fruits)) {
+    return "fruits";
+    } else if (Object.values(Cereales).includes(value as Cereales)) {
+    return "graines"
+    }
+    return null; // Return null if the value does not belong to any enum
+}

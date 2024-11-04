@@ -4,6 +4,7 @@ import styles from './App.module.css';
 import { MenuTable } from './MenuTable';
 import { GroceriesList } from './GroceriesList';
 import { MainForm } from './MainForm';
+import { getEnumName, Groceries, Ingredients } from '../assets/ingredients';
 
 function App() {
 
@@ -43,11 +44,40 @@ function App() {
     setMenus(menus);
   }
 
-  const generateGroceries = (menus: plat[]) => {
+
+  // un peu du gâchis, mais bon (todo: repenser les data structures ?)
+  const generateGroceries = (menus: plat[]): Groceries => {
+
     const ingredients = menus.flatMap((menu) => menu.ingredients);
-    const dedupedIngredients = new Set(ingredients);
-    return Array.from(dedupedIngredients).sort();
-  };
+
+    return ingredients.reduce((prev: Groceries, curr: string) => {
+      const ingredientType = getEnumName(curr);
+      if (ingredientType) {
+        return {
+          ...prev,
+          [ingredientType]: prev[ingredientType] 
+            ? prev[ingredientType].concat(curr as Ingredients) 
+            : [curr]
+        } 
+      }
+      return prev;
+    }, {
+      alcools: [],
+      condiments: [],
+      fromages: [],
+      fruits: [],
+      féculents: [],
+      graines: [],
+      laitages: [],
+      légumes: [],
+      misc: [],
+      oléagineux: [],
+      poisson: [],
+      surgelés: [],
+      viande: [],
+    } as Groceries)
+    
+  }
 
   const handleVeggieSettingChange = () => {
     setSettingVeggie(!settingVeggie);
@@ -83,7 +113,7 @@ function App() {
 return (
   <div className={styles.App}>
     <section>
-      <MainForm 
+      <MainForm
         handleDifficultySettingChange={handleDifficultySettingChange}
         handleGenerateMenus={handleGenerateMenus}
         handleGlutenSettingChange={handleGlutenSettingChange}
@@ -95,10 +125,10 @@ return (
       />
       {menus ? (
         <MenuTable
-         menus={menus}
-         daysInTable={daysInTable}
-         lunchesQty={lunchesQty}
-         dinnersQty={dinnersQty}
+          menus={menus}
+          daysInTable={daysInTable}
+          lunchesQty={lunchesQty}
+          dinnersQty={dinnersQty}
         />
       ) : null}
       {menus ? (
@@ -109,7 +139,7 @@ return (
       ) : null}
     </section>
   </div>
-  );
+);
 }
 
 export default App;

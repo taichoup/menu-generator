@@ -1,4 +1,4 @@
-export enum condiments {
+export enum Condiments {
     AIL = 'ail',
     ANETH = 'aneth',
     BASILIC = 'basilic',
@@ -59,7 +59,7 @@ export enum condiments {
     VINAIGRE_VIN_ROUGE = 'vinaigre de vin rouge',
 };
 
-export enum viande {
+export enum Viande {
     BOEUF = 'boeuf',
     BOEUF_A_MIJOTER = 'viande de boeuf à mijoter',
     BOEUF_A_MIJOTER_BOURGUIGNON = 'boeuf bourguignon (morceaux persillés et un peu gélatineux)',
@@ -94,7 +94,7 @@ export enum viande {
     VEAU_EPAULE = 'épaule de veau',
 };
 
-export enum poisson {
+export enum Poisson {
     CABILLAUD = 'cabillaud',
     DAURADE = 'daurade',
     LIEU = 'lieu',
@@ -106,7 +106,7 @@ export enum poisson {
     THON = 'thon',
 };
 
-export enum feculents {
+export enum Feculents {
     AU_CHOIX = 'féculent au choix',
     FARINE_BLE = 'farine',
     FARINE_MAIS = 'farine de maïs',
@@ -131,7 +131,7 @@ export enum feculents {
     SEMOULE = 'semoule',
 }
 
-export enum fromages {
+export enum Fromages {
     CHEDDAR = 'cheddar',
     CHEVRE = 'chèvre',
     CHEVRE_FRAIS = 'chèvre frais',
@@ -145,7 +145,7 @@ export enum fromages {
     RAPE_AU_CHOIX = 'fromage râpé au choix',
 }
 
-export enum legumes {
+export enum Legumes {
     AU_CHOIX = 'légumes au choix',
     AUBERGINES = 'aubergines',
     AVOCATS = 'avocats',
@@ -187,7 +187,7 @@ export enum legumes {
     TOPINAMBOUR = 'tompinambour',
 };
 
-export enum misc {
+export enum Divers {
     BOUILLON_CUBE = 'bouillon cube',
     BOUILLON_CUBE_BOEUF = 'bouillon cube de boeuf',
     BOUILLON_CUBE_VOLAILLE = 'bouillon cube de volaille',
@@ -217,7 +217,7 @@ export enum misc {
     TORTILLAS = 'tortillas',
 }
 
-export enum noix {
+export enum Oleagineux {
     AMANDES = 'amandes',
     NOISETTES = 'noisettes',
     NOIX = 'noix',
@@ -225,7 +225,7 @@ export enum noix {
     NOIX_PECAN = 'noix de pécan',
 }
 
-export enum laitages_divers {
+export enum LaitagesDivers {
     BEURRE = 'beurre',
     BEURRE_DEMI_SEL = 'beurre demi-sel',
     CREAM_CHEESE = 'cream cheese',
@@ -237,7 +237,7 @@ export enum laitages_divers {
     LAIT_COCO = 'lait de coco',
 }
 
-export enum surgeles {
+export enum Surgeles {
     EPINARDS = 'épinards surgelés',
     GRIOTTES = 'griottes surgelées',
     LASAGNES = 'lasagnes surgelées',
@@ -246,7 +246,7 @@ export enum surgeles {
     POISSON_BRANDADE = 'brandade de morue surgelée'
 }
 
-export enum alcool {
+export enum Alcools {
     BIERE_BLONDE = 'bière blonde',
     BIERE_BRUNE = 'bière brune',
     EAU_DE_VIE_POIRE = 'eau de vie de poire',
@@ -261,7 +261,7 @@ export enum alcool {
     VIN_ROUGE_LOIRE = 'vin de loire rouge',
 }
 
-export enum pates {
+export enum Pates {
     FARFALLE = 'farfalle',
     FUSILLI = 'fusilli',
     LINGUINE = 'linguine',
@@ -271,7 +271,7 @@ export enum pates {
     TAGLIATELLE = 'tagliatelle',
 }
 
-export enum fruits {
+export enum Fruits {
     ANANAS = 'ananas',
     AVOCATS = 'avocats',
     BANANES = 'bananes',
@@ -289,7 +289,7 @@ export enum fruits {
     POMMES = 'pommes',
 }
 
-export enum cereales {
+export enum Cereales {
     BLE = 'blé',
     MAIS = 'maïs',
     ORGE = 'orge',

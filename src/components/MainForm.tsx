@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { DifficultyLevel, tags } from "../assets/plats";
 import styles from "./App.module.css";
+import { Button, Checkbox, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from "@mui/material";
 
 interface Props {
   handleDifficultySettingChange: (event: React.FormEvent) => void;
@@ -27,80 +27,81 @@ export const MainForm = ({
     <>
       <form className={styles.settings} id="settings_form">
         <div className={styles.settingsGroup}>
-          <h4>Restrictions :</h4>
-
-          {/* VEGGIE? */}
-          <div>
-            <input
-              type="checkbox"
-              id="settings_veggie"
-              onChange={handleVeggieSettingChange}
+          <FormControl>
+            <FormLabel>
+              Options
+            </FormLabel>
+            {/* VEGGIE? */}
+            <FormControlLabel
+              label={tags.VEGGIE}
+              control={
+                <Checkbox
+                  onChange={handleVeggieSettingChange}
+                  id="settings_veggie"
+                />
+              }
             />
-            <label htmlFor="settings_veggie">{tags.VEGGIE}</label>
-          </div>
 
-          {/* VEGAN? */}
-          <div>
-            <input
-              type="checkbox"
-              id="settings_vegan"
-              onChange={handleVeganSettingChange}
+            {/* VEGAN? */}
+            <FormControlLabel
+              label={tags.VEGAN}
+              control={
+                <Checkbox
+                  onChange={handleVeganSettingChange}
+                  id="settings_vegan"
+                />
+              }
             />
-            <label htmlFor="settings_vegan">{tags.VEGAN}</label>
-          </div>
 
-          {/* GLUTEN-FREE? */}
-          <div>
-            <input
-              type="checkbox"
-              id="settings_nogluten"
-              onChange={handleGlutenSettingChange}
+            {/* GLUTEN-FREE? */}
+            <FormControlLabel
+              label={tags.GLUTEN_FREE}
+              control={
+                <Checkbox
+                  onChange={handleGlutenSettingChange}
+                  id="settings_nogluten"
+                />
+              }
             />
-            <label htmlFor="settings_nogluten">{tags.GLUTEN_FREE}</label>
-          </div>
 
-          {/* SEASONAL? */}
-          <div>
-            <input
-              type="checkbox"
-              id="settings_seasonal"
-              onChange={handleSeasonalSettingChange}
+            {/* SEASONAL? */}
+            <FormControlLabel
+              label="de saison"
+              control={
+                <Checkbox
+                  onChange={handleSeasonalSettingChange}
+                  id="settings_seasonal"
+                />
+              }
             />
-            <label htmlFor="settings°seasonal">de saison</label>
-          </div>
+
+          </FormControl>
         </div>
         <div className={styles.settingsGroup}>
-          <h4>Difficulté :</h4>
-          <div>
-            <input
-              type="radio"
-              id="difficulty_casual"
-              name="difficulty"
-              value="casual"
-              onChange={handleDifficultySettingChange}
-            />
-            <label htmlFor="difficulty_casual">{DifficultyLevel.CASUAL}</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="difficulty_medium"
-              name="difficulty"
-              value="medium"
-              onChange={handleDifficultySettingChange}
-            />
-            <label htmlFor="difficulty_medium">{DifficultyLevel.MEDIUM}</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="difficulty_hard"
-              name="difficulty"
-              value="fancy"
-              onChange={handleDifficultySettingChange}
-            />
-            <label htmlFor="difficulty_hard">{DifficultyLevel.FANCY}</label>
-          </div>
+          <FormControl>
+            <FormLabel id="demo-radio-buttons-group-label">Difficulté</FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="difficulty_casual"
+              name="radio-buttons-group"
+            >
+              <FormControlLabel
+                value="difficulty_casual"
+                control={<Radio onChange={handleDifficultySettingChange} />}
+                label={DifficultyLevel.CASUAL}
+              />
+              <FormControlLabel
+                value="medium"
+                control={<Radio onChange={handleDifficultySettingChange} />}
+                label={DifficultyLevel.MEDIUM}
+              />
+              <FormControlLabel
+                value="fancy"
+                control={<Radio onChange={handleDifficultySettingChange} />}
+                label={DifficultyLevel.FANCY}
+              />
+            </RadioGroup>
+          </FormControl>
         </div>
         <div>
           <h4>Nombre de menus à générer :</h4>
@@ -118,7 +119,10 @@ export const MainForm = ({
         </div>
       </form>
       <div className={styles.buttonWrapper}>
-        <button onClick={() => handleGenerateMenus(menuQty)}>Générer les menus</button>
+        {/* <button onClick={() => handleGenerateMenus(menuQty)}>Générer les menus</button> */}
+        <Button variant="outlined" onClick={() => handleGenerateMenus(menuQty)}>
+          Générer les menus
+        </Button>
       </div>
     </>
   );

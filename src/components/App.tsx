@@ -4,7 +4,8 @@ import styles from './App.module.css';
 import { MenuTable } from './MenuTable';
 import { GroceriesList } from './GroceriesList';
 import { MainForm } from './MainForm';
-import { getEnumName, Groceries, Ingredients } from '../assets/ingredients';
+import { getEnumName, Groceries, GroceryItemType, Ingredient, AnyIngredient } from '../assets/ingredients';
+import { GroceriesListItem } from './GroceriesListItem';
 
 function App() {
 
@@ -50,17 +51,24 @@ function App() {
 
     const ingredients = menus.flatMap((menu) => menu.ingredients);
 
-    return ingredients.reduce((prev: Groceries, curr: string) => {
-      const ingredientType = getEnumName(curr);
+    return ingredients.reduce((acc: Groceries, currentIngredient: string) => {
+      const ingredientType = getEnumName(currentIngredient);
       if (ingredientType) {
-        return {
-          ...prev,
-          [ingredientType]: prev[ingredientType] 
-            ? prev[ingredientType].concat(curr as Ingredients) 
-            : [curr]
-        } 
+
+        // - 1 if not yet added
+        const ingredientIndexInGroceries = acc[ingredientType]
+          .findIndex(item => item.name === currentIngredient);
+
+        if (ingredientIndexInGroceries >= 0) {
+          // if item already in list, increment its count
+          acc[ingredientType][ingredientIndexInGroceries].count += 1;
+        } else {
+          // if not, add it
+          const bli = acc[ingredientType]
+          acc[ingredientType].push({ name: currentIngredient, count: 1 }); // TODO: fix typing
+        }
       }
-      return prev;
+      return acc;
     }, {
       alcools: [],
       condiments: [],

@@ -14,7 +14,7 @@ import {
     Surgeles,
     Cereales,
     Poisson,
-    Ingredients
+    AnyIngredient
 } from './ingredients';
 
 export enum DifficultyLevel {
@@ -34,7 +34,7 @@ type Difficulty = DifficultyLevel | undefined;
 
 export type plat = {
     name: string,
-    ingredients: (Ingredients | string)[],
+    ingredients: (AnyIngredient | string)[],
     difficulty: Difficulty,
     course: 'entrée' | 'plat' | 'dessert' | 'cocktail' | 'goûter',
     seasons: Seasons[] | 'all'

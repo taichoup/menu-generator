@@ -1,11 +1,12 @@
-import { Groceries, GroceryItemType, Ingredient, AnyIngredient } from "../assets/ingredients";
-import { plat } from "../assets/plats";
+import { Groceries } from "../assets/ingredients";
+import { Dish } from "../assets/plats";
+import { getEmoji } from "../utils";
 import styles from "./App.module.css";
 import { GroceriesListItem } from "./GroceriesListItem";
 
 interface Props {  
-  generateGroceries: (menus: plat[]) => Groceries;
-  menuShortlist: plat[];
+  generateGroceries: (menus: Dish[]) => Groceries;
+  menuShortlist: Dish[];
 }
 
 export const GroceriesList = ({
@@ -28,36 +29,6 @@ export const GroceriesList = ({
   };
 
   const groceries = generateGroceries(menuShortlist);
-  const getEmoji = (category: keyof Groceries): string => {
-    switch (category) {
-      case "alcools":
-        return String.fromCodePoint(0x1f377); // 🍷
-      case "condiments":
-        return String.fromCodePoint(0x1f9c2); // 🧂
-      case "fromages":
-        return String.fromCodePoint(0x1f9c0); // etc.
-      case "fruits":
-        return String.fromCodePoint(0x1f95d);
-      case "féculents":
-        return String.fromCodePoint(0x1f35d);
-      case "graines":
-        return String.fromCodePoint(0x1f35a);
-      case "laitages": 
-        return String.fromCodePoint(0x1f95b);
-      case "légumes":
-        return String.fromCodePoint(0x1f966);
-      case "oléagineux":
-        return String.fromCodePoint(0x1f95c);
-      case "misc":
-        return String.fromCodePoint(0x1f344);
-      case "poisson":
-        return String.fromCodePoint(0x1f41f);
-      case "surgelés":
-        return String.fromCodePoint(0x2744);
-      case "viande":
-        return String.fromCodePoint(0x1f969);
-    }
-  }
 
   return (
     <div className={styles.listeCourses}>

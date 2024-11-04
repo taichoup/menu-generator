@@ -1,20 +1,19 @@
 import {
     Alcools,
-    Viande,
-    Pates,
-    // poisson,
+    AnyIngredient,
+    Cereales,
+    Condiments,
+    Divers,
     Feculents,
     Fromages,
     Fruits,
-    Legumes,
-    Divers,
-    Oleagineux,
     LaitagesDivers,
-    Condiments,
-    Surgeles,
-    Cereales,
+    Legumes,
+    Oleagineux,
+    Pates,
     Poisson,
-    AnyIngredient
+    Surgeles,
+    Viande,
 } from './ingredients';
 
 export enum DifficultyLevel {
@@ -32,31 +31,31 @@ export enum Seasons {
 
 type Difficulty = DifficultyLevel | undefined;
 
-export type plat = {
+export type Dish = {
     name: string,
-    ingredients: (AnyIngredient | string)[],
+    ingredients: (AnyIngredient | string)[], // ce "string" rend le typing bcp plus lâche partout, hélas...
     difficulty: Difficulty,
     course: 'entrée' | 'plat' | 'dessert' | 'cocktail' | 'goûter',
     seasons: Seasons[] | 'all'
     source?: string,
-    tags?: tags[]
+    tags?: Tags[]
 }
 
-export enum tags {
-    VEGGIE = 'végétarien',
-    VEGAN = 'vegan',
-    GLUTEN_FREE = 'pas de gluten',
-    KIDS = 'kids',
-    HEALTHY = 'healthy',
-    FATTY = 'fatty',
-    NO_PORK = 'pas de porc',
-    HOT = 'plat chaud',
+export enum Tags {
     COLD = 'plat froid',
+    FATTY = 'fatty',
+    GLUTEN_FREE = 'pas de gluten',
+    HEALTHY = 'healthy',
+    HOT = 'plat chaud',
+    KIDS = 'kids',
+    NO_PORK = 'pas de porc',
+    SAVORY = 'plat salé',
     SWEET = 'plat sucré',
-    SAVORY = 'plat salé'
+    VEGAN = 'vegan',
+    VEGGIE = 'végétarien',
 };
 
-export const plats: plat[] = [
+export const dishes: Dish[] = [
   {
     name: "couscous",
     ingredients: [Feculents.SEMOULE, Legumes.LEGUMES_COUSCOUS],
@@ -78,7 +77,7 @@ export const plats: plat[] = [
     ],
     difficulty: DifficultyLevel.MEDIUM,
     course: "plat",
-    tags: [tags.SAVORY],
+    tags: [Tags.SAVORY],
     seasons: [Seasons.FALL, Seasons.SPRING, Seasons.WINTER],
   },
   {
@@ -99,7 +98,7 @@ export const plats: plat[] = [
       Viande.BOEUF_A_MIJOTER,
     ],
     course: "plat",
-    tags: [tags.SAVORY],
+    tags: [Tags.SAVORY],
     seasons: "all",
   },
   {
@@ -125,7 +124,7 @@ export const plats: plat[] = [
       Divers.OEUFS,
     ],
     course: "plat",
-    tags: [tags.SAVORY],
+    tags: [Tags.SAVORY],
     seasons: "all",
   },
   {
@@ -143,7 +142,7 @@ export const plats: plat[] = [
       Viande.DINDE_PAUPIETTES,
     ],
     course: "plat",
-    tags: [tags.SAVORY],
+    tags: [Tags.SAVORY],
     seasons: "all",
   },
   {
@@ -158,7 +157,7 @@ export const plats: plat[] = [
       Viande.SAUCISSES,
     ],
     course: "plat",
-    tags: [tags.SAVORY],
+    tags: [Tags.SAVORY],
     seasons: [Seasons.FALL, Seasons.WINTER, Seasons.SPRING],
   },
   {
@@ -177,7 +176,7 @@ export const plats: plat[] = [
       Divers.BOUILLON_CUBE,
     ],
     course: "plat",
-    tags: [tags.SAVORY],
+    tags: [Tags.SAVORY],
     seasons: [Seasons.FALL, Seasons.WINTER, Seasons.SPRING],
   },
   {
@@ -199,7 +198,7 @@ export const plats: plat[] = [
       Divers.BOUILLON_CUBE_VOLAILLE,
     ],
     course: "plat",
-    tags: [tags.VEGGIE, tags.GLUTEN_FREE, tags.SAVORY],
+    tags: [Tags.VEGGIE, Tags.GLUTEN_FREE, Tags.SAVORY],
   },
   {
     name: "rougail de richton",
@@ -223,7 +222,7 @@ export const plats: plat[] = [
       Viande.SAUCISSES_MORTAUX,
     ],
     course: "plat",
-    tags: [tags.FATTY, tags.SAVORY],
+    tags: [Tags.FATTY, Tags.SAVORY],
     seasons: "all",
   },
   {
@@ -241,7 +240,7 @@ export const plats: plat[] = [
       Divers.OEUFS,
     ],
     seasons: "all",
-    tags: [tags.FATTY, tags.SWEET],
+    tags: [Tags.FATTY, Tags.SWEET],
   },
   {
     name: "patrick's cornbread",
@@ -270,7 +269,7 @@ export const plats: plat[] = [
       Divers.OEUFS,
       Surgeles.GRIOTTES,
     ],
-    tags: [tags.SWEET],
+    tags: [Tags.SWEET],
     seasons: [Seasons.SUMMER],
   },
   {
@@ -287,7 +286,7 @@ export const plats: plat[] = [
       Viande.CHORIZO,
       Viande.JAMBON,
     ],
-    tags: [tags.FATTY, tags.KIDS, tags.SAVORY],
+    tags: [Tags.FATTY, Tags.KIDS, Tags.SAVORY],
     seasons: "all",
   },
   {
@@ -307,7 +306,7 @@ export const plats: plat[] = [
       Pates.TAGLIATELLE,
       Viande.VEAU,
     ],
-    tags: [tags.SAVORY],
+    tags: [Tags.SAVORY],
     seasons: "all",
   },
   {
@@ -315,7 +314,7 @@ export const plats: plat[] = [
     difficulty: DifficultyLevel.CASUAL,
     course: "plat",
     ingredients: ["compote", "purée", Viande.SAUCISSES],
-    tags: [tags.KIDS],
+    tags: [Tags.KIDS],
     seasons: "all",
   },
   {
@@ -323,7 +322,7 @@ export const plats: plat[] = [
     difficulty: DifficultyLevel.CASUAL,
     course: "plat",
     ingredients: ["steaks", Feculents.RIZ, Surgeles.EPINARDS],
-    tags: [tags.SAVORY],
+    tags: [Tags.SAVORY],
     seasons: "all",
   },
   {
@@ -331,7 +330,7 @@ export const plats: plat[] = [
     difficulty: DifficultyLevel.CASUAL,
     course: "plat",
     ingredients: [Surgeles.LASAGNES],
-    tags: [tags.SAVORY],
+    tags: [Tags.SAVORY],
     seasons: "all",
   },
   {
@@ -339,7 +338,7 @@ export const plats: plat[] = [
     difficulty: DifficultyLevel.CASUAL,
     course: "plat",
     ingredients: [Surgeles.MOUSSAKA],
-    tags: [tags.SAVORY],
+    tags: [Tags.SAVORY],
     seasons: "all",
   },
   {
@@ -347,7 +346,7 @@ export const plats: plat[] = [
     difficulty: DifficultyLevel.CASUAL,
     course: "plat",
     ingredients: ["féculent", "légume", Surgeles.POISSON_BORDELAISE],
-    tags: [tags.SAVORY],
+    tags: [Tags.SAVORY],
     seasons: "all",
   },
   {
@@ -355,7 +354,7 @@ export const plats: plat[] = [
     difficulty: DifficultyLevel.MEDIUM,
     course: "plat",
     ingredients: [Alcools.VIN_BLANC_SEC, Feculents.RIZ_RISOTTO, Legumes.COURGE],
-    tags: [tags.VEGAN, tags.VEGGIE, tags.SAVORY],
+    tags: [Tags.VEGAN, Tags.VEGGIE, Tags.SAVORY],
     seasons: [Seasons.FALL],
   },
   {
@@ -363,7 +362,7 @@ export const plats: plat[] = [
     difficulty: DifficultyLevel.CASUAL,
     course: "plat",
     ingredients: ["féculent", "légume", Surgeles.POISSON_BRANDADE],
-    tags: [tags.SAVORY],
+    tags: [Tags.SAVORY],
     seasons: "all",
   },
   {
@@ -376,7 +375,7 @@ export const plats: plat[] = [
       Pates.SPAGHETTI,
       Viande.LARDONS,
     ],
-    tags: [tags.SAVORY],
+    tags: [Tags.SAVORY],
     seasons: [Seasons.FALL, Seasons.WINTER, Seasons.SPRING],
   },
   {
@@ -384,7 +383,7 @@ export const plats: plat[] = [
     difficulty: DifficultyLevel.CASUAL,
     course: "plat",
     ingredients: ["cordon bleu", "féculent", "légume"],
-    tags: [tags.SAVORY],
+    tags: [Tags.SAVORY],
     seasons: "all",
   },
   {
@@ -407,7 +406,7 @@ export const plats: plat[] = [
     ],
     source:
       "https://chefsimon.com/gourmets/chef-simon/recettes/courgettes-farcies-au-quinoa-et-duxelles-de-champignons",
-    tags: [tags.VEGAN, tags.VEGGIE, tags.GLUTEN_FREE, tags.SAVORY],
+    tags: [Tags.VEGAN, Tags.VEGGIE, Tags.GLUTEN_FREE, Tags.SAVORY],
     seasons: [Seasons.SUMMER],
   },
   {
@@ -425,7 +424,7 @@ export const plats: plat[] = [
     ],
     source:
       "https://www.marmiton.org/recettes/recette_soupe-aux-lentilles-corail_27918.aspx",
-    tags: [tags.VEGAN, tags.VEGGIE, tags.GLUTEN_FREE, tags.SAVORY],
+    tags: [Tags.VEGAN, Tags.VEGGIE, Tags.GLUTEN_FREE, Tags.SAVORY],
     seasons: [Seasons.FALL, Seasons.WINTER],
   },
   {
@@ -445,7 +444,7 @@ export const plats: plat[] = [
     ],
     source:
       "https://www.marmiton.org/recettes/recette_gratin-de-courgette_80011.aspx",
-    tags: [tags.GLUTEN_FREE, tags.SAVORY],
+    tags: [Tags.GLUTEN_FREE, Tags.SAVORY],
     seasons: [Seasons.SUMMER],
   },
   {
@@ -463,7 +462,7 @@ export const plats: plat[] = [
     ],
     source:
       "https://www.marmiton.org/recettes/recette_soupe-a-la-tomate-et-au-basilic_41193.aspx",
-    tags: [tags.VEGGIE, tags.GLUTEN_FREE, tags.HEALTHY, tags.SAVORY],
+    tags: [Tags.VEGGIE, Tags.GLUTEN_FREE, Tags.HEALTHY, Tags.SAVORY],
     seasons: [Seasons.SUMMER],
   },
   {
@@ -483,7 +482,7 @@ export const plats: plat[] = [
     ],
     source:
       "https://www.marmiton.org/recettes/recette_salade-piemontaise-de-nath_33648.aspx",
-    tags: [tags.GLUTEN_FREE, tags.SAVORY],
+    tags: [Tags.GLUTEN_FREE, Tags.SAVORY],
     seasons: [Seasons.SUMMER, Seasons.SPRING],
   },
   {
@@ -501,7 +500,7 @@ export const plats: plat[] = [
     ],
     source:
       "https://www.marmiton.org/recettes/recette_parfait-aux-fruits-rouges_176113.aspx",
-    tags: [tags.VEGGIE, tags.SWEET],
+    tags: [Tags.VEGGIE, Tags.SWEET],
     seasons: [Seasons.SUMMER],
   },
   {
@@ -521,7 +520,7 @@ export const plats: plat[] = [
     source:
       "https://www.marmiton.org/recettes/recette_tomates-farcies-a-la-viande-hachee-faciles-et-rapides_92386.aspx",
     seasons: [Seasons.SUMMER],
-    tags: [tags.SAVORY],
+    tags: [Tags.SAVORY],
   },
   {
     name: "mousse à la groseille",
@@ -536,7 +535,7 @@ export const plats: plat[] = [
     source:
       "https://www.marmiton.org/recettes/recette_mousse-a-la-groseille_170265.aspx",
     seasons: [Seasons.SUMMER],
-    tags: [tags.SWEET],
+    tags: [Tags.SWEET],
   },
   {
     name: "poivrons farcis au thon et au quinoa",
@@ -556,7 +555,7 @@ export const plats: plat[] = [
     ],
     source:
       "https://www.marmiton.org/recettes/recette_poivrons-farcis-au-thon-et-au-quinoa_63771.aspx",
-    tags: [tags.GLUTEN_FREE, tags.NO_PORK, tags.SAVORY],
+    tags: [Tags.GLUTEN_FREE, Tags.NO_PORK, Tags.SAVORY],
     seasons: [Seasons.SUMMER, Seasons.FALL],
   },
   {
@@ -577,7 +576,7 @@ export const plats: plat[] = [
     ],
     source:
       "https://www.marmiton.org/recettes/recette_salade-de-riz-vegetarienne_531273.aspx",
-    tags: [tags.VEGGIE, tags.SAVORY],
+    tags: [Tags.VEGGIE, Tags.SAVORY],
     seasons: [Seasons.SUMMER],
   },
   {
@@ -598,7 +597,7 @@ export const plats: plat[] = [
       Pates.LINGUINE,
     ],
     source: "https://www.youtube.com/watch?v=uCOERacO4YY",
-    tags: [tags.VEGGIE, tags.SAVORY],
+    tags: [Tags.VEGGIE, Tags.SAVORY],
     seasons: [Seasons.FALL, Seasons.SPRING, Seasons.SUMMER],
   },
   {
@@ -615,7 +614,7 @@ export const plats: plat[] = [
       Viande.JAMBON_BLANC,
     ],
     source: "https://youtu.be/AgOgegDvQlE",
-    tags: [tags.FATTY, tags.SAVORY],
+    tags: [Tags.FATTY, Tags.SAVORY],
     seasons: [Seasons.FALL, Seasons.WINTER],
   },
   {
@@ -638,7 +637,7 @@ export const plats: plat[] = [
       Divers.BOUILLON_CUBE_BOEUF,
       Viande.BOEUF_JOUE,
     ],
-    tags: [tags.SAVORY, tags.FATTY, tags.NO_PORK],
+    tags: [Tags.SAVORY, Tags.FATTY, Tags.NO_PORK],
     seasons: [Seasons.FALL, Seasons.WINTER, Seasons.SPRING],
   },
   {
@@ -670,7 +669,7 @@ export const plats: plat[] = [
       Viande.BOEUF_HACHE,
     ],
     source: "https://youtu.be/CbLbzXst104",
-    tags: [tags.SAVORY, tags.NO_PORK, tags.HOT],
+    tags: [Tags.SAVORY, Tags.NO_PORK, Tags.HOT],
     seasons: [Seasons.FALL, Seasons.WINTER],
   },
   {
@@ -689,7 +688,7 @@ export const plats: plat[] = [
       Divers.CHAMPI,
     ],
     source: "chefsquare",
-    tags: [tags.NO_PORK, tags.SAVORY, tags.VEGGIE, tags.HOT],
+    tags: [Tags.NO_PORK, Tags.SAVORY, Tags.VEGGIE, Tags.HOT],
     seasons: [Seasons.FALL],
   },
   {
@@ -704,7 +703,7 @@ export const plats: plat[] = [
       Viande.SALAMELLE,
     ],
     source: "https://ricette.giallozafferano.it/Riso-alla-pilota.html",
-    tags: [tags.HOT, tags.SAVORY],
+    tags: [Tags.HOT, Tags.SAVORY],
     seasons: [Seasons.FALL, Seasons.WINTER],
   },
   {
@@ -728,7 +727,7 @@ export const plats: plat[] = [
     ],
     source:
       "https://cuisine.journaldesfemmes.fr/recette/346736-boeuf-bourguignon",
-    tags: [tags.HOT, tags.SAVORY],
+    tags: [Tags.HOT, Tags.SAVORY],
     seasons: "all",
   },
   {
@@ -744,7 +743,7 @@ export const plats: plat[] = [
       Divers.SPECULOOS,
     ],
     source: "chefsquare",
-    tags: [tags.COLD, tags.SWEET, tags.VEGGIE],
+    tags: [Tags.COLD, Tags.SWEET, Tags.VEGGIE],
     seasons: "all",
   },
   {
@@ -765,7 +764,7 @@ export const plats: plat[] = [
     ],
     source:
       "https://www.marmiton.org/recettes/recette_parmentier-de-confit-de-canard_17048.aspx",
-    tags: [tags.HOT, tags.FATTY, tags.SAVORY],
+    tags: [Tags.HOT, Tags.FATTY, Tags.SAVORY],
     seasons: "all",
   },
   {
@@ -783,7 +782,7 @@ export const plats: plat[] = [
       Feculents.AU_CHOIX,
       Legumes.AU_CHOIX,
     ],
-    tags: [tags.HOT, tags.SAVORY, tags.FATTY],
+    tags: [Tags.HOT, Tags.SAVORY, Tags.FATTY],
     seasons: "all",
   },
   {
@@ -807,7 +806,7 @@ export const plats: plat[] = [
     ],
     source:
       "https://www.cuisineaz.com/recettes/blanquette-de-veau-au-safran-114324.aspx",
-    tags: [tags.HOT, tags.SAVORY],
+    tags: [Tags.HOT, Tags.SAVORY],
     seasons: "all",
   },
   {
@@ -827,7 +826,7 @@ export const plats: plat[] = [
     ],
     source:
       "https://www.cuisineaz.com/recettes/moussaka-chevre-basilic-114340.aspx",
-    tags: [tags.HOT, tags.SAVORY, tags.VEGGIE],
+    tags: [Tags.HOT, Tags.SAVORY, Tags.VEGGIE],
     seasons: [Seasons.SUMMER],
   },
   {
@@ -845,7 +844,7 @@ export const plats: plat[] = [
       Condiments.POIVRE,
     ],
     source: "https://www.cuisineactuelle.fr/recettes/gratin-dauphinois-279561",
-    tags: [tags.HOT, tags.SAVORY, tags.VEGGIE, tags.FATTY],
+    tags: [Tags.HOT, Tags.SAVORY, Tags.VEGGIE, Tags.FATTY],
     seasons: "all",
   },
   {
@@ -860,7 +859,7 @@ export const plats: plat[] = [
       LaitagesDivers.BEURRE,
     ],
     source: "https://www.cuisineactuelle.fr/recettes/lasagnes-au-boeuf-274160",
-    tags: [tags.HOT, tags.SWEET, tags.VEGGIE],
+    tags: [Tags.HOT, Tags.SWEET, Tags.VEGGIE],
     seasons: "all",
   },
   {
@@ -881,7 +880,7 @@ export const plats: plat[] = [
       Feculents.AU_CHOIX,
       Legumes.AU_CHOIX,
     ],
-    tags: [tags.HOT, tags.SAVORY],
+    tags: [Tags.HOT, Tags.SAVORY],
     seasons: "all",
   },
   {
@@ -897,7 +896,7 @@ export const plats: plat[] = [
       Condiments.POIVRE,
       Pates.FUSILLI,
     ],
-    tags: [tags.HOT, tags.SAVORY, tags.VEGGIE],
+    tags: [Tags.HOT, Tags.SAVORY, Tags.VEGGIE],
     seasons: [Seasons.FALL],
   },
   {
@@ -919,7 +918,7 @@ export const plats: plat[] = [
     ],
     source:
       "https://www.cuisineactuelle.fr/recettes/ceviche-tropical-de-daurade-191022",
-    tags: [tags.COLD],
+    tags: [Tags.COLD],
     seasons: [Seasons.SUMMER],
   },
   {
@@ -940,7 +939,7 @@ export const plats: plat[] = [
       LaitagesDivers.BEURRE,
       LaitagesDivers.CREAM_CHEESE,
     ],
-    tags: [tags.SWEET, tags.FATTY, tags.VEGGIE],
+    tags: [Tags.SWEET, Tags.FATTY, Tags.VEGGIE],
     seasons: "all",
   },
   {
@@ -961,7 +960,7 @@ export const plats: plat[] = [
       Condiments.CANNELLE,
     ],
     source: "https://ricette.giallozafferano.it/Frittelle-di-riso-e-mele.html",
-    tags: [tags.SWEET, tags.FATTY, tags.VEGGIE],
+    tags: [Tags.SWEET, Tags.FATTY, Tags.VEGGIE],
     seasons: "all",
   },
   {

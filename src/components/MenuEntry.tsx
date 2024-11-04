@@ -1,5 +1,5 @@
-import { plat } from '../assets/plats'
+import { Dish } from '../assets/plats'
 
-export const MenuEntry = ({ name, source }: Partial<plat>) => {
+export const MenuEntry = ({ name, source }: Partial<Dish>) => {
     return <td>{source ? <a href={source}>{name}</a> : name}</td>;
 }

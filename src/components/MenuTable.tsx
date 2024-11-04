@@ -4,11 +4,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 
 import { MenuEntry } from "./MenuEntry";
-import { plat } from "../assets/plats";
+import { Dish } from "../assets/plats";
 import styles from "./App.module.css";
 
 interface Props {
-  menus: plat[];
+  menus: Dish[];
   daysInTable: number[];
   lunchesQty: number;
   dinnersQty: number;

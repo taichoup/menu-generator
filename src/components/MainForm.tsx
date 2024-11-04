@@ -1,4 +1,4 @@
-import { DifficultyLevel, tags } from "../assets/plats";
+import { DifficultyLevel, Tags } from "../assets/plats";
 import styles from "./App.module.css";
 import { Button, Checkbox, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from "@mui/material";
 
@@ -33,7 +33,7 @@ export const MainForm = ({
             </FormLabel>
             {/* VEGGIE? */}
             <FormControlLabel
-              label={tags.VEGGIE}
+              label={Tags.VEGGIE}
               control={
                 <Checkbox
                   onChange={handleVeggieSettingChange}
@@ -44,7 +44,7 @@ export const MainForm = ({
 
             {/* VEGAN? */}
             <FormControlLabel
-              label={tags.VEGAN}
+              label={Tags.VEGAN}
               control={
                 <Checkbox
                   onChange={handleVeganSettingChange}
@@ -55,7 +55,7 @@ export const MainForm = ({
 
             {/* GLUTEN-FREE? */}
             <FormControlLabel
-              label={tags.GLUTEN_FREE}
+              label={Tags.GLUTEN_FREE}
               control={
                 <Checkbox
                   onChange={handleGlutenSettingChange}

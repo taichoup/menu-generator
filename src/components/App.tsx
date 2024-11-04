@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { plats, plat, tags, Seasons } from '../assets/plats';
+import { dishes, Dish, Tags } from '../assets/plats';
 import styles from './App.module.css';
 import { MenuTable } from './MenuTable';
 import { GroceriesList } from './GroceriesList';
 import { MainForm } from './MainForm';
-import { getEnumName, Groceries, GroceryItemType, Ingredient, AnyIngredient } from '../assets/ingredients';
-import { GroceriesListItem } from './GroceriesListItem';
+import { generateGroceries, getCurrentSeason } from '../utils';
 
 function App() {
 
-  const [menus, setMenus] = useState<plat[]>();
+  const [menus, setMenus] = useState<Dish[]>();
   const [menuQty, setMenuQty] = useState(14);
   const [settingVeggie, setSettingVeggie] = useState(false);
   const [settingVegan, setSettingVegan] = useState(false);
@@ -17,74 +16,18 @@ function App() {
   const [settingSeasonal, setSettingSeasonal] = useState(false);
   const [difficulty, setDifficulty] = useState('');
 
-  const getCurrentSeason = (): Seasons => {
-    const currentMonth = new Date().getMonth();
-    if (currentMonth < 4) {
-      return Seasons.WINTER;
-    }
-    if (currentMonth < 7) {
-      return Seasons.SPRING
-    }
-    if (currentMonth < 10) {
-      return Seasons.SUMMER
-    }
-    return Seasons.FALL;
-  }
-
   const handleGenerateMenus = (menuQty: number) => {
-    const menus: plat[] = 
-      [...plats]
+    const menus: Dish[] = 
+      [...dishes]
         .sort(() => Math.random() - Math.random())
         .slice(0, menuQty)
         // y a un souci là. Parfois ça ne génère pas assez de menus. Ce qu'il faudrait quand ça filtre trop, c'est que ça répète les menus pour en avoir le bon nombre
         .filter(plat => difficulty ? plat.difficulty === difficulty : plat)
-        .filter(plat => settingVeggie ? plat?.tags?.includes(tags.VEGGIE) : plat)
-        .filter(plat => settingVegan ? plat?.tags?.includes(tags.VEGAN) : plat)
-        .filter(plat => settingGlutenFree ? plat?.tags?.includes(tags.GLUTEN_FREE) : plat)
+        .filter(plat => settingVeggie ? plat?.tags?.includes(Tags.VEGGIE) : plat)
+        .filter(plat => settingVegan ? plat?.tags?.includes(Tags.VEGAN) : plat)
+        .filter(plat => settingGlutenFree ? plat?.tags?.includes(Tags.GLUTEN_FREE) : plat)
         .filter(plat => settingSeasonal ? plat.seasons === 'all' || plat.seasons.includes(getCurrentSeason()) : plat);
     setMenus(menus);
-  }
-
-
-  // un peu du gâchis, mais bon (todo: repenser les data structures ?)
-  const generateGroceries = (menus: plat[]): Groceries => {
-
-    const ingredients = menus.flatMap((menu) => menu.ingredients);
-
-    return ingredients.reduce((acc: Groceries, currentIngredient: string) => {
-      const ingredientType = getEnumName(currentIngredient);
-      if (ingredientType) {
-
-        // - 1 if not yet added
-        const ingredientIndexInGroceries = acc[ingredientType]
-          .findIndex(item => item.name === currentIngredient);
-
-        if (ingredientIndexInGroceries >= 0) {
-          // if item already in list, increment its count
-          acc[ingredientType][ingredientIndexInGroceries].count += 1;
-        } else {
-          // if not, add it
-          const bli = acc[ingredientType]
-          acc[ingredientType].push({ name: currentIngredient, count: 1 }); // TODO: fix typing
-        }
-      }
-      return acc;
-    }, {
-      alcools: [],
-      condiments: [],
-      fromages: [],
-      fruits: [],
-      féculents: [],
-      graines: [],
-      laitages: [],
-      légumes: [],
-      misc: [],
-      oléagineux: [],
-      poisson: [],
-      surgelés: [],
-      viande: [],
-    } as Groceries)
-    
   }
 
   const handleVeggieSettingChange = () => {

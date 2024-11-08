@@ -94,7 +94,7 @@ export const MainForm = ({
               name="radio-buttons-group"
             >
               <FormControlLabel
-                value="difficulty_casual"
+                value="casual"
                 control={<Radio onChange={handleDifficultySettingChange} />}
                 label={DifficultyLevel.CASUAL}
               />
@@ -130,7 +130,6 @@ export const MainForm = ({
         </div>
       </form>
       <div className={styles.buttonWrapper}>
-        {/* <button onClick={() => handleGenerateMenus(menuQty)}>Générer les menus</button> */}
         <Button variant="outlined" onClick={() => handleGenerateMenus(menuQty)}>
           Générer les menus
         </Button>

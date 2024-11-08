@@ -17,16 +17,31 @@ function App() {
   const [difficulty, setDifficulty] = useState('');
 
   const handleGenerateMenus = (menuQty: number) => {
-    const menus: Dish[] = 
-      [...dishes]
-        .sort(() => Math.random() - Math.random())
-        .slice(0, menuQty)
-        // y a un souci là. Parfois ça ne génère pas assez de menus. Ce qu'il faudrait quand ça filtre trop, c'est que ça répète les menus pour en avoir le bon nombre
-        .filter(plat => difficulty ? plat.difficulty === difficulty : plat)
-        .filter(plat => settingVeggie ? plat?.tags?.includes(Tags.VEGGIE) : plat)
-        .filter(plat => settingVegan ? plat?.tags?.includes(Tags.VEGAN) : plat)
-        .filter(plat => settingGlutenFree ? plat?.tags?.includes(Tags.GLUTEN_FREE) : plat)
-        .filter(plat => settingSeasonal ? plat.seasons === 'all' || plat.seasons.includes(getCurrentSeason()) : plat);
+    const menus: Dish[] = [...dishes]
+      .reduce<Dish[]>((prev, curr) => {
+        if (curr.difficulty !== difficulty) {
+          return prev;
+        }
+        if (settingVeggie && !curr?.tags?.includes(Tags.VEGGIE)) {
+          return prev;
+        }
+        if (settingVegan && !curr?.tags?.includes(Tags.VEGAN)) {
+          return prev;
+        }
+        if (settingGlutenFree && !curr?.tags?.includes(Tags.GLUTEN_FREE)) {
+          return prev;
+        }
+        if (
+          settingSeasonal &&
+          !(curr?.seasons === "all") &&
+          !curr?.seasons.includes(getCurrentSeason())
+        ) {
+          return prev;
+        }
+        return prev.concat(curr);
+      }, [])
+      .sort(() => Math.random() - Math.random())
+      .slice(0, menuQty); // we have to sort before slicing even if it's a shame for perfs because otherwise we'll always get the same menus
     setMenus(menus);
   }
 

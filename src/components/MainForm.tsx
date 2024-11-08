@@ -1,11 +1,11 @@
 import { DifficultyLevel, Tags } from "../assets/plats";
 import styles from "./App.module.css";
-import { Button, Checkbox, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from "@mui/material";
+import { Button, Checkbox, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, Slider } from "@mui/material";
 
 interface Props {
   handleDifficultySettingChange: (event: React.FormEvent) => void;
   handleGenerateMenus: (menuQty: number) => void;
-  handleMenuQtyChange: (event: React.FormEvent) => void;
+  handleMenuQtyChange: (value: number) => void;
   handleGlutenSettingChange: () => void;
   handleSeasonalSettingChange: () => void;
   handleVeganSettingChange: () => void;
@@ -23,14 +23,21 @@ export const MainForm = ({
     handleVeggieSettingChange,
     menuQty,
 }: Props) => {
+  
+  const handleSliderChange = (event: Event, newValue: number | number[]) => {
+    // we're not using the double thumb feature
+    if (typeof newValue !== 'number') {
+      return;
+    }
+    handleMenuQtyChange(newValue);
+  }
+
   return (
     <>
       <form className={styles.settings} id="settings_form">
         <div className={styles.settingsGroup}>
           <FormControl>
-            <FormLabel>
-              Options
-            </FormLabel>
+            <FormLabel>Options</FormLabel>
             {/* VEGGIE? */}
             <FormControlLabel
               label={Tags.VEGGIE}
@@ -74,12 +81,13 @@ export const MainForm = ({
                 />
               }
             />
-
           </FormControl>
         </div>
         <div className={styles.settingsGroup}>
           <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label">Difficulté</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label">
+              Difficulté
+            </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               defaultValue="difficulty_casual"
@@ -106,15 +114,18 @@ export const MainForm = ({
         <div>
           <h4>Nombre de menus à générer :</h4>
           <div>
-            <input
-              type="range"
+            <span className={styles.menuQtyLabel}>{menuQty}</span>
+            <Slider
+              defaultValue={14}
+              shiftStep={0}
+              step={1}
+              marks
+              min={1}
+              max={14}
               id="settings_qty"
-              onChange={handleMenuQtyChange}
-              min="1"
-              max="14"
+              onChange={handleSliderChange}
               name="qty"
             />
-            <span className={styles.menuQtyLabel}>{menuQty}</span>
           </div>
         </div>
       </form>

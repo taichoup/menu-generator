@@ -50,8 +50,8 @@ function App() {
     setDifficulty((event.currentTarget as HTMLInputElement).value);
   };
 
-  const handleMenuQtyChange = (event: React.FormEvent) => {
-    setMenuQty(Number((event.currentTarget as HTMLInputElement).value));
+  const handleMenuQtyChange = (newValue: number) => {
+    setMenuQty(newValue);
   };
 
   // array with the qty of days corresponding to the qty of menus

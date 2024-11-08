@@ -14,7 +14,7 @@ function App() {
   const [settingVegan, setSettingVegan] = useState(false);
   const [settingGlutenFree, setSettingGlutenFree] = useState(false);
   const [settingSeasonal, setSettingSeasonal] = useState(false);
-  const [difficulty, setDifficulty] = useState('');
+  const [difficulty, setDifficulty] = useState('casual');
 
   const handleGenerateMenus = (menuQty: number) => {
     const menus: Dish[] = [...dishes]

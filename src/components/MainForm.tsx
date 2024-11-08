@@ -90,7 +90,7 @@ export const MainForm = ({
             </FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="difficulty_casual"
+              defaultValue="casual"
               name="radio-buttons-group"
             >
               <FormControlLabel

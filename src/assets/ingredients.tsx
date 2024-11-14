@@ -44,6 +44,7 @@ export enum Condiments {
     ROMARIN = 'romarin',
     SAFRAN = 'safran',
     SAUCE_SOJA = 'sauce soja',
+    SAUCE_TOMATE = 'sauce tomate',
     SAUGE = 'sauge',
     SEL = 'sel',
     SUCRE = 'sucre',

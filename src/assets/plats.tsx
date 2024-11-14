@@ -1026,5 +1026,18 @@ export const dishes: Dish[] = [
         Divers.PAIN,
     ],
     seasons: [Seasons.WINTER, Seasons.FALL],
+  },
+  {
+    name: "pâtes sauce tomate carottes céleri",
+    course: "plat",
+    difficulty: DifficultyLevel.CASUAL,
+    ingredients: [
+      Feculents.PATES,
+      Legumes.CAROTTES,
+      Legumes.CELERI,
+      Fromages.PARMESAN,
+      Condiments.SAUCE_TOMATE
+    ],
+    seasons: [Seasons.FALL]
   }
 ];

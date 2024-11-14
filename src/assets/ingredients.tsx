@@ -7,13 +7,16 @@ export enum Condiments {
     CARDAMOME = 'cardamome',
     CHILI = 'chili',
     CIBOULETTE = 'ciboulette',
-    CORIANDRE = 'coriandre',
+    CORIANDRE_FEUILLES = 'coriandre (feuilles)',
+    CORIANDRE_GRAINES = 'coriandre (graines)',
     CUMIN = 'cumin',
     CURCUMA = 'curcuma',
     CURRY = 'curry',
     ECHALOTES = 'échalotes',
     FINES_HERBES = 'fines herbes',
+    GARAM_MASALA = 'garam masala',
     GINGEMBRE = 'gingembre',
+    GINGEMBRE_PATE = 'pâte de gingembre',
     GIROFLE_CLOUS = 'clous de girofle',
     HUILE_ARACHIDE = 'huile d\'arachide',
     HUILE_OLIVE = 'huile d\'olive',
@@ -40,6 +43,7 @@ export enum Condiments {
     PIMENT_CAYENNE = 'piment de Cayenne',
     PIMENT_ESPELETTE = 'piment d\'Espelette',
     PIMENT_JALAPENO = 'piment Jalapeño',
+    PIMNET_VERT = 'piment vert (green chili)',
     POIVRE = 'poivre',
     ROMARIN = 'romarin',
     SAFRAN = 'safran',
@@ -57,6 +61,7 @@ export enum Condiments {
     VINAIGRE = 'vinaigre',
     VINAIGRE_BALSAMIQUE = 'vinaigre balsamique',
     VINAIGRE_CIDRE = 'vinaigre de cidre',
+    VINAIGRE_VIN_BLANC = 'vinaigre de vin blanc',
     VINAIGRE_VIN_ROUGE = 'vinaigre de vin rouge',
 };
 
@@ -64,6 +69,7 @@ export enum Viande {
     BOEUF = 'boeuf',
     BOEUF_A_MIJOTER = 'viande de boeuf à mijoter',
     BOEUF_A_MIJOTER_BOURGUIGNON = 'boeuf bourguignon (morceaux persillés et un peu gélatineux)',
+    BOEUF_ONGLET = "boeuf (onglet)",
     BOEUF_HACHE = 'boeuf haché',
     BOEUF_JOUE = 'joue de boeuf',
     CANARD_CONFIT = 'confit de canard',
@@ -76,6 +82,7 @@ export enum Viande {
     JAMBON = 'jambon',
     JAMBON_BLANC = 'jambon blanc',
     JAMBON_FUME = 'jambon fumé',
+    LARD_FUME = 'lard fumé',
     LARDONS = 'lardons',
     PORC = 'porc',
     PORC_COTES = 'côtes de porc',
@@ -93,6 +100,7 @@ export enum Viande {
     VEAU = 'veau',
     VEAU_TENDRON = 'tendron de veau',
     VEAU_EPAULE = 'épaule de veau',
+    VEAU_GLACE = 'glace de veau',
 };
 
 export enum Poisson {
@@ -137,13 +145,16 @@ export enum Fromages {
     CHEVRE = 'chèvre',
     CHEVRE_FRAIS = 'chèvre frais',
     COMTE = 'comte',
+    EMMENTAL = 'emmental',
     GORGONZOLA = 'gorgonzola',
     GRANA = 'grana padano',
     GRUYERE = 'gruyère',
     MASCARPONE = 'mascarpone',
     MOZZARELLA = 'mozzarella',
     PARMESAN = 'parmesan',
+    PECORINO = 'pecorino romano',
     RAPE_AU_CHOIX = 'fromage râpé au choix',
+    ROQUEFORT = 'roquefort',
 }
 
 export enum Legumes {
@@ -165,10 +176,12 @@ export enum Legumes {
   COURGE = "courge",
   COURGETTES = "courgettes",
   COURGETTES_RONDES = "courgettes rondes",
+  ECHALOTES = "échalotes",
   FENOUIL = "fenouil",
   LEGUMES_COUSCOUS = "légumes à couscous",
   MAIS = "maïs",
   NAVET = "navet",
+  PANAIS = "panais",
   // on considère les patates comme à la fois des légumes et des féculents
   PATATES = "pommes de terre",
   POIREAU = "poireaux",
@@ -214,6 +227,8 @@ export enum Divers {
     PAIN = 'pain',
     PAIN_COMPLET = 'pain complet',
     PAIN_MIE = 'pain de mie',
+    PATE_BRISEE = 'pâte brisée toute faite',
+    PATE_FEUILLETEE = 'pâte feuilletée toute faite',
     SPECULOOS = 'biscuits speculoos',
     TORTILLAS = 'tortillas',
 }
@@ -228,6 +243,7 @@ export enum Oleagineux {
 
 export enum LaitagesDivers {
     BEURRE = 'beurre',
+    BEURRE_AIL = "beurre à l'ail",
     BEURRE_DEMI_SEL = 'beurre demi-sel',
     CREAM_CHEESE = 'cream cheese',
     CREME_AIGRE = 'crème aigre',
@@ -236,6 +252,7 @@ export enum LaitagesDivers {
     FROMAGE_BLANC = 'fromage blanc',
     LAIT = 'lait',
     LAIT_COCO = 'lait de coco',
+    YAOURT = 'yaourt nature',
 }
 
 export enum Surgeles {

@@ -625,7 +625,7 @@ export const dishes: Dish[] = [
       Alcools.BIERE_BRUNE,
       Condiments.AIL,
       Condiments.CANNELLE,
-      Condiments.CORIANDRE,
+      Condiments.CORIANDRE_FEUILLES,
       Condiments.HUILE_OLIVE,
       Condiments.LAURIER,
       Condiments.MOUTARDE,
@@ -911,7 +911,7 @@ export const dishes: Dish[] = [
       Fruits.CITRONS,
       Condiments.OIGNONS,
       Condiments.ANETH,
-      Condiments.CORIANDRE,
+      Condiments.CORIANDRE_FEUILLES,
       Condiments.HUILE_OLIVE,
       Condiments.SEL,
       Condiments.POIVRE,
@@ -1005,7 +1005,7 @@ export const dishes: Dish[] = [
       Legumes.PATATES,
       Feculents.LENTILLES_CORAIL,
       LaitagesDivers.LAIT_COCO,
-      Condiments.CORIANDRE,
+      Condiments.CORIANDRE_FEUILLES,
       Condiments.CURRY,
     ],
     seasons: "all",
@@ -1077,15 +1077,11 @@ export const dishes: Dish[] = [
       Divers.OEUFS,
     ],
     source: "https://yuka.io/recettes/tarte-rustique-panais/",
-    tags: [
-      Tags.HOT,
-      Tags.VEGGIE,
-      Tags.SAVORY,
-    ]
+    tags: [Tags.HOT, Tags.VEGGIE, Tags.SAVORY],
   },
   {
-    name: 'tarte aux topinambours',
-    course: 'plat',
+    name: "tarte aux topinambours",
+    course: "plat",
     difficulty: DifficultyLevel.CASUAL,
     seasons: [Seasons.WINTER],
     ingredients: [
@@ -1097,33 +1093,21 @@ export const dishes: Dish[] = [
       Condiments.SEL,
       Condiments.POIVRE,
     ],
-    tags: [
-      Tags.HOT,
-      Tags.VEGGIE,
-      Tags.SAVORY
-    ]
+    tags: [Tags.HOT, Tags.VEGGIE, Tags.SAVORY],
   },
   {
-    name: 'spaghetti cacio e pepe',
-    course: 'plat',
+    name: "spaghetti cacio e pepe",
+    course: "plat",
     difficulty: DifficultyLevel.CASUAL,
-    seasons: 'all',
-    ingredients: [
-      Pates.SPAGHETTI,
-      Condiments.POIVRE,
-      Fromages.PECORINO,
-    ],
-    tags: [
-      Tags.HOT,
-      Tags.VEGGIE,
-      Tags.SAVORY
-    ]
+    seasons: "all",
+    ingredients: [Pates.SPAGHETTI, Condiments.POIVRE, Fromages.PECORINO],
+    tags: [Tags.HOT, Tags.VEGGIE, Tags.SAVORY],
   },
   {
-    name: 'chicken biryani',
-    course: 'plat',
+    name: "chicken biryani",
+    course: "plat",
     difficulty: DifficultyLevel.FANCY,
-    seasons: 'all',
+    seasons: "all",
     ingredients: [
       Condiments.OIGNONS_ROUGES,
       Condiments.HUILE_ARACHIDE,
@@ -1144,16 +1128,13 @@ export const dishes: Dish[] = [
       Condiments.CORIANDRE_FEUILLES,
       Feculents.RIZ_BASMATI,
     ],
-    tags: [
-      Tags.HOT,
-      Tags.SAVORY
-    ]
+    tags: [Tags.HOT, Tags.SAVORY],
   },
   {
-    name: 'curry in a hurry',
-    course: 'plat',
+    name: "curry in a hurry",
+    course: "plat",
     difficulty: DifficultyLevel.MEDIUM,
-    seasons: 'all',
+    seasons: "all",
     ingredients: [
       Viande.POULET_BLANC,
       LaitagesDivers.YAOURT,
@@ -1178,14 +1159,11 @@ export const dishes: Dish[] = [
       Fruits.CITRONS,
       Feculents.RIZ_BASMATI,
     ],
-    tags: [
-      Tags.HOT,
-      Tags.SAVORY
-    ]
+    tags: [Tags.HOT, Tags.SAVORY],
   },
   {
-    name: 'Kartoffelsalat',
-    course: 'plat',
+    name: "Kartoffelsalat",
+    course: "plat",
     difficulty: DifficultyLevel.MEDIUM,
     seasons: [Seasons.SPRING, Seasons.SUMMER],
     ingredients: [
@@ -1200,9 +1178,6 @@ export const dishes: Dish[] = [
       Condiments.AIL,
       Condiments.OIGNONS_JEUNES,
     ],
-    tags: [
-      Tags.COLD,
-      Tags.SAVORY
-    ]
+    tags: [Tags.COLD, Tags.SAVORY],
   },
 ];

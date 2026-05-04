@@ -1,58 +1,58 @@
 import {
-    Alcools,
-    AnyIngredient,
-    Cereales,
-    Condiments,
-    Divers,
-    Feculents,
-    Fromages,
-    Fruits,
-    LaitagesDivers,
-    Legumes,
-    Oleagineux,
-    Pates,
-    Poisson,
-    Surgeles,
-    Viande,
+  Alcools,
+  AnyIngredient,
+  Cereales,
+  Condiments,
+  Divers,
+  Feculents,
+  Fromages,
+  Fruits,
+  LaitagesDivers,
+  Legumes,
+  Oleagineux,
+  Pates,
+  Poisson,
+  Surgeles,
+  Viande,
 } from './ingredients';
 
 export enum DifficultyLevel {
-    CASUAL = 'casual',
-    MEDIUM = 'medium',
-    FANCY = 'fancy'
+  CASUAL = 'casual',
+  MEDIUM = 'medium',
+  FANCY = 'fancy'
 };
 
 export enum Seasons {
-    WINTER = "winter",
-    SPRING = "spring",
-    SUMMER = "summer",
-    FALL = "fall",
+  WINTER = "winter",
+  SPRING = "spring",
+  SUMMER = "summer",
+  FALL = "fall",
 }
 
 type Difficulty = DifficultyLevel | undefined;
 
 export type Dish = {
-    name: string,
-    ingredients: (AnyIngredient | string)[], // ce "string" rend le typing bcp plus lâche partout, hélas...
-    difficulty: Difficulty,
-    course: 'entrée' | 'plat' | 'dessert' | 'cocktail' | 'goûter',
-    seasons: Seasons[] | 'all'
-    source?: string,
-    tags?: Tags[]
+  name: string,
+  ingredients: (AnyIngredient | string)[], // ce "string" rend le typing bcp plus lâche partout, hélas...
+  difficulty: Difficulty,
+  course: 'entrée' | 'plat' | 'dessert' | 'cocktail' | 'goûter',
+  seasons: Seasons[] | 'all'
+  source?: string,
+  tags?: Tags[]
 }
 
 export enum Tags {
-    COLD = 'plat froid',
-    FATTY = 'fatty',
-    GLUTEN_FREE = 'pas de gluten',
-    HEALTHY = 'healthy',
-    HOT = 'plat chaud',
-    KIDS = 'kids',
-    NO_PORK = 'pas de porc',
-    SAVORY = 'plat salé',
-    SWEET = 'plat sucré',
-    VEGAN = 'vegan',
-    VEGGIE = 'végétarien',
+  COLD = 'plat froid',
+  FATTY = 'fatty',
+  GLUTEN_FREE = 'pas de gluten',
+  HEALTHY = 'healthy',
+  HOT = 'plat chaud',
+  KIDS = 'kids',
+  NO_PORK = 'pas de porc',
+  SAVORY = 'plat salé',
+  SWEET = 'plat sucré',
+  VEGAN = 'vegan',
+  VEGGIE = 'végétarien',
 };
 
 export const dishes: Dish[] = [

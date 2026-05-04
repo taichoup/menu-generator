@@ -2,26 +2,42 @@
   /* text-align: center; */
 }
 
-table, tr, td {
+.menuTable table,
+.menuTable tr,
+.menuTable td {
   border: 1px solid black;
 }
 
-thead {
+.menuTable thead {
   font-weight: bold;
 }
 
-td {
+.menuTable td {
   padding: 1em;
 }
 
 .listeCourses {
   padding: 1em;
-  -moz-column-count: 4;
-  -moz-column-gap: 20px;
-  -webkit-column-count: 4;
-  -webkit-column-gap: 20px;
-  column-count: 4;
   column-gap: 20px;
+  column-count: 1;
+}
+
+@media (min-width: 600px) {
+  .listeCourses {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 900px) {
+  .listeCourses {
+    column-count: 3;
+  }
+}
+
+@media (min-width: 1200px) {
+  .listeCourses {
+    column-count: 4;
+  }
 }
 
 .strikethrough {

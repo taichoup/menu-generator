@@ -15,6 +15,7 @@ export enum Condiments {
     ECHALOTES = 'échalotes',
     FINES_HERBES = 'fines herbes',
     GARAM_MASALA = 'garam masala',
+    GENIEVRE_BAIES = 'baies de genièvre',
     GINGEMBRE = 'gingembre',
     GINGEMBRE_PATE = 'pâte de gingembre',
     GIROFLE_CLOUS = 'clous de girofle',
@@ -38,6 +39,7 @@ export enum Condiments {
     PAPRIKA = 'paprika',
     PAPRIKA_DOUX = 'paprika doux',
     PAPRIKA_FORT = 'paprika fort',
+    PAPRIKA_FUME = 'paprika fumé',
     PERSIL = 'persil',
     PIMENT = 'piment',
     PIMENT_CAYENNE = 'piment de Cayenne',
@@ -81,6 +83,7 @@ export enum Viande {
     DINDE_PAUPIETTES = 'paupiettes de dinde',
     JAMBON = 'jambon',
     JAMBON_BLANC = 'jambon blanc',
+    JAMBON_SEC = 'jambon sec',
     JAMBON_FUME = 'jambon fumé',
     LARD_FUME = 'lard fumé',
     LARDONS = 'lardons',
@@ -158,51 +161,53 @@ export enum Fromages {
 }
 
 export enum Legumes {
-  AU_CHOIX = "légumes au choix",
-  AUBERGINES = "aubergines",
-  AVOCATS = "avocats",
-  BETTERAVES = "betteraves",
-  BETTERAVES_CUITES = "betteraves cuites",
-  BLETTES = "blettes",
-  BUTTERNUT = "butternut",
-  CAROTTES = "carottes",
-  CELERI = "céleri",
-  CHAMPI = "champignons",
-  CHAMPI_CEPES = "cèpes",
-  CHAMPI_GIROLLES = "girolles",
-  CHAMPI_PARIS = "champignons de Paris",
-  CHOU = "chou",
-  CHOU_ROUGE = "chou rouge",
-  COURGE = "courge",
-  COURGETTES = "courgettes",
-  COURGETTES_RONDES = "courgettes rondes",
-  ECHALOTES = "échalotes",
-  FENOUIL = "fenouil",
-  LEGUMES_COUSCOUS = "légumes à couscous",
-  MAIS = "maïs",
-  NAVET = "navet",
-  PANAIS = "panais",
-  // on considère les patates comme à la fois des légumes et des féculents
-  PATATES = "pommes de terre",
-  POIREAU = "poireaux",
-  POIVRON = "poivrons",
-  POIVRON_JAUNE = "poivrons jaunes",
-  POIVRON_ROUGE = "poivrons rouges",
-  POIVRON_VERT = "poivrons verts",
-  POTIRON = "potiron",
-  RADIS = "radis",
-  RADIS_NOIR = "radis noir",
-  RAIFORT = "raifort",
-  SALSIFI = "salsifi",
-  TOMATES = "tomates",
-  TOMATES_CERISE = "tomates cerise",
-  TOMATES_CONCENTRE = "concentré de tomates",
-  TOMATES_COULIS = "coulis de tomates",
-  TOMATES_PELEES = "tomates pelées",
-  TOMATES_PULPE = "pulpe de tomates",
-  TOMATES_PUREE = "purée de tomates",
-  TOMATES_SECHEES = "tomates séchées",
-  TOPINAMBOUR = "tompinambour",
+    AU_CHOIX = "légumes au choix",
+    AUBERGINES = "aubergines",
+    AVOCATS = "avocats",
+    BETTERAVES = "betteraves",
+    BETTERAVES_CUITES = "betteraves cuites",
+    BLETTES = "blettes",
+    BUTTERNUT = "butternut",
+    CAROTTES = "carottes",
+    CELERI = "céleri",
+    CHAMPI = "champignons",
+    CHAMPI_CEPES = "cèpes",
+    CHAMPI_GIROLLES = "girolles",
+    CHAMPI_PARIS = "champignons de Paris",
+    CHOU = "chou",
+    CHOU_ROUGE = "chou rouge",
+    CONCOMBRE = "concombres",
+    COURGE = "courge",
+    COURGETTES = "courgettes",
+    COURGETTES_RONDES = "courgettes rondes",
+    ECHALOTES = "échalotes",
+    FENOUIL = "fenouil",
+    LEGUMES_COUSCOUS = "légumes à couscous",
+    MAIS = "maïs",
+    NAVET = "navet",
+    PANAIS = "panais",
+    // on considère les patates comme à la fois des légumes et des féculents
+    PATATES = "pommes de terre",
+    PATATES_DOUCES = "patates douces",
+    POIREAU = "poireaux",
+    POIVRON = "poivrons",
+    POIVRON_JAUNE = "poivrons jaunes",
+    POIVRON_ROUGE = "poivrons rouges",
+    POIVRON_VERT = "poivrons verts",
+    POTIRON = "potiron",
+    RADIS = "radis",
+    RADIS_NOIR = "radis noir",
+    RAIFORT = "raifort",
+    SALSIFI = "salsifi",
+    TOMATES = "tomates",
+    TOMATES_CERISE = "tomates cerise",
+    TOMATES_CONCENTRE = "concentré de tomates",
+    TOMATES_COULIS = "coulis de tomates",
+    TOMATES_PELEES = "tomates pelées",
+    TOMATES_PULPE = "pulpe de tomates",
+    TOMATES_PUREE = "purée de tomates",
+    TOMATES_SECHEES = "tomates séchées",
+    TOPINAMBOUR = "tompinambour",
 };
 
 export enum Divers {
@@ -226,9 +231,11 @@ export enum Divers {
     OEUFS = 'oeufs',
     PAIN = 'pain',
     PAIN_COMPLET = 'pain complet',
+    PAIN_EPICES = "pain d'épices",
     PAIN_MIE = 'pain de mie',
     PATE_BRISEE = 'pâte brisée toute faite',
     PATE_FEUILLETEE = 'pâte feuilletée toute faite',
+    SIROP_ERABLE = "sirop d'érable",
     SPECULOOS = 'biscuits speculoos',
     TORTILLAS = 'tortillas',
 }
@@ -267,6 +274,7 @@ export enum Surgeles {
 export enum Alcools {
     BIERE_BLONDE = 'bière blonde',
     BIERE_BRUNE = 'bière brune',
+    CIDRE = 'cidre',
     EAU_DE_VIE_POIRE = 'eau de vie de poire',
     EAU_DE_VIE_PRUNE = 'eau de vie de prune',
     VIN_BLANC_MONBAZILLAC = 'monbazillac',
@@ -295,6 +303,7 @@ export enum Fruits {
     BANANES = 'bananes',
     CERISES = 'cerises',
     CITRONS = 'citrons',
+    CRANBERRIES = 'cranberries',
     CITRONS_ZESTES = 'zestes de citron',
     FRAMBOISES = 'framboises',
     FRUITS_PASSION = 'fruits de la passion',
@@ -305,6 +314,7 @@ export enum Fruits {
     ORANGES = 'oranges',
     POIRES = 'poires',
     POMMES = 'pommes',
+    RAISINS_SECS = 'raisins secs',
 }
 
 export enum Cereales {
@@ -315,68 +325,68 @@ export enum Cereales {
     SEIGLE = 'seigle',
 }
 
-export type AnyIngredient = 
-  | Condiments 
-  | Viande
-  | Poisson
-  | Feculents
-  | Fromages
-  | Legumes
-  | Divers
-  | Oleagineux
-  | LaitagesDivers
-  | Surgeles
-  | Alcools
-  | Fruits
-  | Cereales
+export type AnyIngredient =
+    | Condiments
+    | Viande
+    | Poisson
+    | Feculents
+    | Fromages
+    | Legumes
+    | Divers
+    | Oleagineux
+    | LaitagesDivers
+    | Surgeles
+    | Alcools
+    | Fruits
+    | Cereales
 
 export type GroceryItem = { name: string, count: number }
 
-type GroceryKeys = 
-  |'alcools'
-  |'condiments'
-  |'féculents'
-  |'fromages'
-  |'fruits'
-  |'graines'
-  |'laitages'
-  |'légumes'
-  |'misc'
-  |'oléagineux'
-  |'poisson'
-  |'surgelés'
-  |'viande';
+type GroceryKeys =
+    | 'alcools'
+    | 'condiments'
+    | 'féculents'
+    | 'fromages'
+    | 'fruits'
+    | 'graines'
+    | 'laitages'
+    | 'légumes'
+    | 'misc'
+    | 'oléagineux'
+    | 'poisson'
+    | 'surgelés'
+    | 'viande';
 
 export type Groceries = Record<GroceryKeys, GroceryItem[]>;
 
 // beurk...
 export const getEnumName = (value: string): keyof Groceries | null => {
     if (Object.values(Condiments).includes(value as Condiments)) {
-    return "condiments";
+        return "condiments";
     } else if (Object.values(Viande).includes(value as Viande)) {
-    return "viande";
+        return "viande";
     } else if (Object.values(Poisson).includes(value as Poisson)) {
-    return "poisson";
+        return "poisson";
     } else if (Object.values(Feculents).includes(value as Feculents) || Object.values(Pates).includes(value as Pates)) {
-    return "féculents";
+        return "féculents";
     } else if (Object.values(Fromages).includes(value as Fromages)) {
-    return "fromages";
+        return "fromages";
     } else if (Object.values(Legumes).includes(value as Legumes)) {
-    return "légumes";
+        return "légumes";
     } else if (Object.values(Divers).includes(value as Divers)) {
-    return "misc";
+        return "misc";
     } else if (Object.values(Oleagineux).includes(value as Oleagineux)) {
-    return "oléagineux";
+        return "oléagineux";
     } else if (Object.values(LaitagesDivers).includes(value as LaitagesDivers)) {
-    return "laitages";
+        return "laitages";
     } else if (Object.values(Surgeles).includes(value as Surgeles)) {
-    return "surgelés";
+        return "surgelés";
     } else if (Object.values(Alcools).includes(value as Alcools)) {
-    return "alcools";
+        return "alcools";
     } else if (Object.values(Fruits).includes(value as Fruits)) {
-    return "fruits";
+        return "fruits";
     } else if (Object.values(Cereales).includes(value as Cereales)) {
-    return "graines"
+        return "graines"
     }
     return null; // Return null if the value does not belong to any enum
 }

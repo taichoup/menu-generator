@@ -17,32 +17,21 @@ function App() {
   const [difficulty, setDifficulty] = useState('casual');
 
   const handleGenerateMenus = (menuQty: number) => {
-    const menus: Dish[] = [...dishes]
-      .reduce<Dish[]>((prev, curr) => {
-        if (curr.difficulty !== difficulty) {
-          return prev;
-        }
-        if (settingVeggie && !curr?.tags?.includes(Tags.VEGGIE)) {
-          return prev;
-        }
-        if (settingVegan && !curr?.tags?.includes(Tags.VEGAN)) {
-          return prev;
-        }
-        if (settingGlutenFree && !curr?.tags?.includes(Tags.GLUTEN_FREE)) {
-          return prev;
-        }
-        if (
-          settingSeasonal &&
-          !(curr?.seasons === "all") &&
-          !curr?.seasons.includes(getCurrentSeason())
-        ) {
-          return prev;
-        }
-        return prev.concat(curr);
-      }, [])
-      .sort(() => Math.random() - Math.random())
-      .slice(0, menuQty); // we have to sort before slicing even if it's a shame for perfs because otherwise we'll always get the same menus
-    setMenus(menus);
+    const filtered = [...dishes].reduce<Dish[]>((prev, curr) => {
+      if (curr.difficulty !== difficulty) return prev;
+      if (settingVeggie && !curr?.tags?.includes(Tags.VEGGIE)) return prev;
+      if (settingVegan && !curr?.tags?.includes(Tags.VEGAN)) return prev;
+      if (settingGlutenFree && !curr?.tags?.includes(Tags.GLUTEN_FREE)) return prev;
+      if (settingSeasonal && !(curr?.seasons === "all") && !curr?.seasons.includes(getCurrentSeason())) return prev;
+      return prev.concat(curr);
+    }, []);
+
+    for (let i = filtered.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [filtered[i], filtered[j]] = [filtered[j], filtered[i]];
+    }
+
+    setMenus(filtered.slice(0, menuQty));
   }
 
   const handleVeggieSettingChange = () => {
